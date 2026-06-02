@@ -346,29 +346,29 @@ html:not(.dark) main a.group[class*="ring"]:has(p) svg {
 
   /* 1. Header height limit */
   #navbar {
-    height: 64px !important;
+    height: 80px !important;
   }
 
   /* The relative wrapper containing both rows */
   #navbar .max-w-8xl>div>.relative {
-    height: 64px !important;
+    height: 80px !important;
     position: relative !important;
   }
 
   /* Make the main top row span full height, remove bottom border from it */
   #navbar .h-16 {
-    height: 64px !important;
+    height: 80px !important;
     border-bottom: none !important;
   }
 
-  /* Ensure the background transition wrapper spans only 64px and keeps the bottom border */
+  /* Remove border from background transition wrapper */
   #navbar-transition {
-    height: 64px !important;
-    border-bottom: 1px solid rgba(156, 163, 175, 0.35) !important;
+    height: 80px !important;
+    border-bottom: none !important;
   }
 
   html.dark #navbar-transition {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.18) !important;
+    border-bottom: none !important;
   }
 
   /* 2. Position the tabs row in the center of the header */
@@ -379,7 +379,7 @@ html:not(.dark) main a.group[class*="ring"]:has(p) svg {
     top: 0 !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
-    height: 64px !important;
+    height: 80px !important;
     margin: 0 !important;
     padding: 0 !important;
     background: transparent !important;
@@ -843,4 +843,63 @@ div[role="dialog"] div.flex.items-center.justify-between.mb-6 button {
   border: none !important;
   background: transparent !important;
   box-shadow: none !important;
+}
+
+/* Remove px-4 and pt-4 padding from the main scroll container */
+.flex.flex-col.flex-1.px-4.pt-4.pb-12.overflow-y-auto.h-full {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Fix Logo Visibility and Sizing */
+.nav-logo {
+  height: 28px !important;
+  max-width: 12rem !important;
+  /* max-w-48 */
+  object-fit: contain !important;
+}
+
+/* Light Mode: Show light logo, hide dark logo */
+html:not(.dark) img.nav-logo.dark\:hidden {
+  display: block !important;
+}
+
+html:not(.dark) img.nav-logo.dark\:block {
+  display: none !important;
+}
+
+/* Dark Mode: Hide light logo, show dark logo */
+html.dark img.nav-logo.dark\:hidden {
+  display: none !important;
+}
+
+html.dark img.nav-logo.dark\:block {
+  display: block !important;
+}
+
+/* Custom navigation header and content padding adjustments */
+@media (min-width: 1024px) {
+
+  /* Change lg:px-12 to lg:px-6 (padding from 3rem/48px to 1.5rem/24px) and change height to 80px (h-20) */
+  .flex.items-center.lg\:px-12 {
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+    height: 80px !important;
+  }
+
+  /* Change peer-[.is-not-custom]:lg:px-8 to 6 (padding from 2rem/32px to 1.5rem/24px) */
+  .peer-\[\.is-not-custom\]\:lg\:px-8 {
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+  }
+
+  /* Prevent active header menu tabs from increasing font-weight/thickness */
+  #navbar .nav-tabs-item[data-active="true"],
+  #navbar .nav-tabs-item[aria-current="page"],
+  #navbar .nav-tabs-item[aria-current="location"],
+  #navbar .nav-tabs-item.active {
+    font-weight: 500 !important;
+    text-shadow: none !important;
+  }
 }
