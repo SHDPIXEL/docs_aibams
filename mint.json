@@ -1,0 +1,169 @@
+{
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "AIBAMS Documentation",
+  "customCSS": [
+    "custom.css"
+  ],
+  "logo": {
+    "dark": "/logo/icon-w.png",
+    "light": "/logo/icon-b.png",
+    "href": "https://www.aibams.com"
+  },
+  "favicon": "/logo/icon-w.png",
+  "colors": {
+    "primary": "#ffffff",
+    "light": "#e4e4e7",
+    "dark": "#09090b",
+    "anchors": {
+      "from": "#a1a1aa",
+      "to": "#a1a1aa"
+    },
+    "background": {
+      "dark": "#09090b",
+      "light": "#ffffff"
+    }
+  },
+  "topbarLinks": [],
+  "topbarCtaButton": {
+    "name": "Portal",
+    "url": "https://portal.aibams.com"
+  },
+  "tabs": [
+    {
+      "name": "User Guide",
+      "url": "user-guide"
+    },
+    {
+      "name": "Admin Guide",
+      "url": "admin-guide"
+    },
+    {
+      "name": "API Reference",
+      "url": "api-reference"
+    },
+    {
+      "name": "Changelog",
+      "url": "changelog"
+    }
+  ],
+  "anchors": [
+    {
+      "name": "Website",
+      "icon": "globe",
+      "url": "https://www.aibams.com"
+    },
+    {
+      "name": "Community",
+      "icon": "users",
+      "url": "https://www.aibams.com/community"
+    },
+    {
+      "name": "Contact Support",
+      "icon": "envelope",
+      "url": "https://www.aibams.com/contact"
+    },
+    {
+      "name": "Blog",
+      "icon": "newspaper",
+      "url": "https://www.aibams.com/blog"
+    }
+  ],
+  "navigation": [
+    {
+      "group": "Get Started",
+      "pages": [
+        "introduction",
+        "quickstart",
+        "getting-started/account-setup",
+        "getting-started/first-steps",
+        "getting-started/platform-overview"
+      ]
+    },
+    {
+      "group": "Fusion Suite",
+      "pages": [
+        "fusion-suite/overview",
+        "fusion-suite/webx",
+        "fusion-suite/mailx",
+        "fusion-suite/filex",
+        "fusion-suite/fusionx",
+        "fusion-suite/fusion-os"
+      ]
+    },
+    {
+      "group": "User Guide",
+      "pages": [
+        "user-guide/dashboard",
+        "user-guide/account-settings",
+        "user-guide/billing-subscriptions",
+        "user-guide/team-collaboration",
+        "user-guide/notifications"
+      ]
+    },
+    {
+      "group": "Admin Guide",
+      "pages": [
+        "admin-guide/overview",
+        "admin-guide/workspace-setup",
+        "admin-guide/user-management",
+        "admin-guide/roles-permissions",
+        "admin-guide/security-settings",
+        "admin-guide/audit-logs",
+        "admin-guide/integrations"
+      ]
+    },
+    {
+      "group": "AI Features",
+      "pages": [
+        "ai-features/ai-assistant",
+        "ai-features/autonomous-agents",
+        "ai-features/memory-system",
+        "ai-features/ai-automation"
+      ]
+    },
+    {
+      "group": "Troubleshooting",
+      "pages": [
+        "troubleshooting/common-issues",
+        "troubleshooting/account-billing",
+        "troubleshooting/connectivity",
+        "troubleshooting/performance"
+      ]
+    },
+    {
+      "group": "FAQ",
+      "pages": [
+        "faq/general",
+        "faq/pricing-plans",
+        "faq/technical",
+        "faq/security-privacy"
+      ]
+    },
+    {
+      "group": "Changelog",
+      "pages": [
+        "changelog/overview",
+        "changelog/v1-0",
+        "changelog/release-notes-template"
+      ]
+    }
+  ],
+  "footerSocials": {
+    "instagram": "https://www.instagram.com/ai.bams/",
+    "youtube": "https://www.youtube.com/@aibams",
+    "linkedin": "https://www.linkedin.com/company/aibams/posts/?feedView=all"
+  },
+  "feedback": {
+    "thumbsRating": true,
+    "suggestEdit": true,
+    "raiseIssue": true
+  },
+  "search": {
+    "prompt": "Search AIBAMS docs..."
+  },
+  "modeToggle": {
+    "default": "dark",
+    "isHidden": false
+  },
+  "backgroundImage": "/images/background.png"
+}

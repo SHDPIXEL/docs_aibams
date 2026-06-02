@@ -1,0 +1,174 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "customCSS": [
+    "custom.css"
+  ],
+  "name": "AIBAMS Documentation",
+  "colors": {
+    "primary": "#ffffff",
+    "light": "#e4e4e7",
+    "dark": "#09090b"
+  },
+  "favicon": "/logo/icon-w.png",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "introduction",
+              "quickstart",
+              "getting-started/account-setup",
+              "getting-started/first-steps",
+              "getting-started/platform-overview"
+            ]
+          },
+          {
+            "group": "Fusion Suite",
+            "pages": [
+              "fusion-suite/overview",
+              "fusion-suite/webx",
+              "fusion-suite/mailx",
+              "fusion-suite/filex",
+              "fusion-suite/fusionx",
+              "fusion-suite/fusion-os"
+            ]
+          },
+          {
+            "group": "AI Features",
+            "pages": [
+              "ai-features/ai-assistant",
+              "ai-features/autonomous-agents",
+              "ai-features/memory-system",
+              "ai-features/ai-automation"
+            ]
+          },
+          {
+            "group": "Troubleshooting",
+            "pages": [
+              "troubleshooting/common-issues",
+              "troubleshooting/account-billing",
+              "troubleshooting/connectivity",
+              "troubleshooting/performance"
+            ]
+          },
+          {
+            "group": "FAQ",
+            "pages": [
+              "faq/general",
+              "faq/pricing-plans",
+              "faq/technical",
+              "faq/security-privacy"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "User Guide",
+        "groups": [
+          {
+            "group": "User Guide",
+            "pages": [
+              "user-guide/dashboard",
+              "user-guide/account-settings",
+              "user-guide/billing-subscriptions",
+              "user-guide/team-collaboration",
+              "user-guide/notifications"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Admin Guide",
+        "groups": [
+          {
+            "group": "Admin Guide",
+            "pages": [
+              "admin-guide/overview",
+              "admin-guide/workspace-setup",
+              "admin-guide/user-management",
+              "admin-guide/roles-permissions",
+              "admin-guide/security-settings",
+              "admin-guide/audit-logs",
+              "admin-guide/integrations"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Changelog",
+        "groups": [
+          {
+            "group": "Changelog",
+            "pages": [
+              "changelog/overview",
+              "changelog/v1-0",
+              "changelog/release-notes-template"
+            ]
+          }
+        ]
+      }
+    ],
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Website",
+          "href": "https://www.aibams.com",
+          "icon": "globe"
+        },
+        {
+          "anchor": "Community",
+          "href": "https://www.aibams.com/community",
+          "icon": "discord"
+        },
+        {
+          "anchor": "Contact Support",
+          "href": "https://www.aibams.com/contact",
+          "icon": "envelope"
+        },
+        {
+          "anchor": "Blog",
+          "href": "https://www.aibams.com/blog",
+          "icon": "newspaper"
+        }
+      ]
+    }
+  },
+  "logo": {
+    "light": "/logo/icon-b.png",
+    "dark": "/logo/icon-w.png",
+    "href": "https://www.aibams.com"
+  },
+  "appearance": {
+    "default": "dark",
+    "strict": false
+  },
+  "background": {
+    "image": "/images/background.png",
+    "color": {
+      "light": "#ffffff",
+      "dark": "#09090b"
+    }
+  },
+  "navbar": {
+    "links": [],
+    "primary": {
+      "type": "button",
+      "label": "Portal",
+      "href": "https://portal.aibams.com"
+    }
+  },
+  "search": {
+    "prompt": "Search AIBAMS docs..."
+  },
+  "footer": {
+    "socials": {
+      "instagram": "https://www.instagram.com/ai.bams/",
+      "youtube": "https://www.youtube.com/@aibams",
+      "linkedin": "https://www.linkedin.com/company/aibams/posts/?feedView=all"
+    }
+  }
+}

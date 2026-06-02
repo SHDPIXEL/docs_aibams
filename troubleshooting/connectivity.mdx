@@ -1,0 +1,61 @@
+---
+title: "Connectivity Issues"
+description: "Troubleshoot network, DNS, and connection problems when using AIBAMS."
+icon: "wifi"
+---
+
+## DNS & Domain Verification
+
+The most common connectivity issues in AIBAMS relate to custom domain configuration.
+
+### 1. Domain verification is stuck on "Pending"
+Domain verification relies on DNS propagation, which is outside of AIBAMS's direct control.
+- **Wait:** DNS propagation usually takes 15-60 minutes, but can technically take up to 48 hours.
+- **Verify Records:** Ensure you copied the records exactly as shown in **Admin Settings → Domains**. A single typo in a TXT record value will cause verification to fail.
+- **Check External Tools:** Use a tool like [dnschecker.org](https://dnschecker.org) to check if your TXT verification record has propagated globally. Search for `TXT` records on your domain.
+- **Cloudflare Users:** If you are using Cloudflare, ensure the "Proxy status" (orange cloud icon) is turned **OFF** (DNS only) for the `mail._domainkey` CNAME record and any MX records.
+
+### 2. "Site Not Secure" (SSL Error) on WebX
+When you connect a custom domain to WebX, AIBAMS automatically provisions an SSL/TLS certificate via Let's Encrypt.
+- **Propagation Delay:** The SSL certificate generation process begins *after* the domain is verified. It usually takes 5-10 minutes. If you visit your site immediately after verifying, you might see an SSL warning. Wait 10 minutes and refresh.
+- **CAA Records:** If you have restrictive CAA (Certification Authority Authorization) records on your domain, they might block Let's Encrypt from issuing a certificate. Ensure your CAA records allow `letsencrypt.org`.
+
+---
+
+## App Connectivity Issues
+
+### 1. "Cannot connect to server" or "Network Error" in Dashboard
+If the AIBAMS interface loads but shows a red banner saying "Network Error" or "Offline":
+- **Corporate Firewall/VPN:** Your company network might be blocking WebSocket connections or specific API endpoints used by AIBAMS. Ask your IT department to whitelist `*.aibams.com`.
+- **Browser Extensions:** Aggressive privacy extensions (like Privacy Badger, uBlock Origin, or Brave Shields) can block necessary API calls. Try disabling them for `portal.aibams.com`.
+- **Local Network Issue:** Try accessing the site from a different network (e.g., your phone's cellular data) to isolate the issue to your local Wi-Fi.
+
+### 2. MailX: Cannot connect via IMAP/SMTP (Third-Party Clients)
+While AIBAMS provides a robust web interface for MailX, you might prefer to use Apple Mail, Outlook, or Thunderbird.
+- **Check Server Settings:**
+  - **IMAP Server:** `imap.aibams.com` | Port: `993` | SSL: `Yes`
+  - **SMTP Server:** `smtp.aibams.com` | Port: `465` | SSL: `Yes`
+- **App Passwords:** If you have 2FA enabled on your AIBAMS account (which is highly recommended), your normal login password will not work in third-party email clients. You must generate an App Password:
+  1. Go to **Settings → Security → App Passwords**.
+  2. Click **Generate New App Password**.
+  3. Use this specific, generated password in Apple Mail/Outlook.
+
+### 3. FileX Desktop Sync Client won't connect
+*(Note: Desktop Sync Client is an upcoming feature)*
+- **Antivirus/Firewall:** Your local antivirus software (e.g., Windows Defender, Norton) might be blocking the sync client from making outbound connections. Add the AIBAMS Sync Client executable to your firewall allowlist.
+- **Proxy Settings:** If you are behind a corporate proxy, ensure the sync client is configured to use the proxy (usually auto-detected, but may require manual configuration in the client settings).
+
+---
+
+## Webhooks & API Connectivity
+
+### 1. Webhooks are not reaching my server
+If you configured a webhook in AIBAMS Integrations but your server isn't receiving the payloads:
+- **Check Delivery History:** Go to **Admin Settings → Integrations → Webhooks** and click your webhook. Check the "Delivery History" tab. 
+- **Timeouts:** AIBAMS expects your server to respond with a `2xx` HTTP status code within 5 seconds. If your server takes longer to process the payload, AIBAMS will record it as a failure. *Best practice: Acknowledge the webhook immediately with a `200 OK`, then process the data asynchronously.*
+- **Firewall Restrictions:** Ensure your server is publicly accessible and not blocking POST requests from AIBAMS IP addresses.
+
+### 2. API requests are returning "401 Unauthorized"
+- **Revoked Key:** Check if the API key you are using has been revoked by an Admin.
+- **Header Format:** Ensure you are passing the API key correctly in the headers. The format must be: `Authorization: Bearer <your-api-key>`.
+- **Scope Limitations:** Ensure the API key has the necessary scopes for the endpoint you are trying to reach (e.g., you need the `files.write` scope to upload a document).

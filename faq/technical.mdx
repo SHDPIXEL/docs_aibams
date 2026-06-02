@@ -1,0 +1,61 @@
+---
+title: "Technical FAQ"
+description: "Answers to technical questions about AIBAMS architecture, APIs, and infrastructure."
+icon: "wrench"
+---
+
+## What infrastructure does AIBAMS run on?
+
+AIBAMS is built on a modern, cloud-native architecture. Our primary infrastructure is hosted on **Amazon Web Services (AWS)** and **Google Cloud Platform (GCP)**. 
+
+We utilize a globally distributed CDN to ensure low latency and fast load times for WebX sites and platform access from anywhere in the world.
+
+## Where is my data stored?
+
+By default, data for AIBAMS workspaces is stored in the **Asia Pacific (Mumbai) region** to comply with Indian data residency requirements. Backups and disaster recovery instances are located in secondary regions (e.g., Singapore) within secure, isolated environments.
+
+Enterprise customers can request custom data residency configurations to meet specific regional compliance requirements (e.g., EU data centers for GDPR compliance).
+
+## Does AIBAMS have an API?
+
+Yes. AIBAMS offers a comprehensive RESTful API available to customers on our **Professional and Enterprise plans**. 
+
+The API allows you to programmatically manage users, manipulate files in FileX, send emails via MailX, and trigger FusionX automation workflows. Documentation for the API is available in the "API Reference" section of the portal.
+
+## What happens if the AIBAMS platform goes down?
+
+We guarantee a **99.9% uptime SLA** for standard plans, and 99.99% for Enterprise plans. 
+
+Our architecture is highly redundant. If a specific application node fails, traffic is automatically routed to healthy instances. We maintain a public status page at [status.aibams.com](https://status.aibams.com) where you can check real-time system metrics and subscribe to incident alerts.
+
+## Can I export my data if I decide to leave?
+
+Absolutely. You own your data. We provide a comprehensive data export tool within the Admin settings. 
+
+You can export:
+- All files from FileX (as a structured ZIP archive).
+- All emails from MailX (in standard `.eml` or `.mbox` formats).
+- Workspace configurations and audit logs (as JSON/CSV).
+
+## How does WebX handle SEO?
+
+WebX sites are generated with best-practice SEO fundamentals built-in:
+- Automatic XML Sitemap generation.
+- Optimized `robots.txt`.
+- Semantic HTML5 structuring.
+- Built-in fields for custom Meta Titles, Descriptions, and OpenGraph tags.
+- Automatic WebP image compression for fast loading speeds.
+- Server-Side Rendering (SSR) to ensure search engine crawlers can index your content easily.
+
+## What is the maximum file size I can upload to FileX?
+
+File size limits depend on your subscription tier:
+- **Early Access Plan:** Up to 5 GB per individual file.
+- **Professional Plan:** Up to 25 GB per individual file.
+- **Enterprise Plan:** Unlimited (subject to fair use policies and total storage quotas).
+
+## How does AIBAMS handle email deliverability?
+
+MailX operates on a highly optimized, enterprise-grade email delivery infrastructure. We maintain strict sender reputation protocols.
+
+When you connect a custom domain, we enforce the configuration of **SPF**, **DKIM**, and **DMARC** records. This ensures that emails sent from your domain via MailX are cryptographically signed and authenticated, minimizing the chance they will be marked as spam by receiving servers (like Gmail or Outlook).

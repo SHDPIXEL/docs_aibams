@@ -1,0 +1,107 @@
+---
+title: "User Management"
+description: "Learn how to onboard, offboard, and manage users within your AIBAMS workspace."
+icon: "users-gear"
+---
+
+## The User Directory
+
+The **User Management** panel provides a complete list of all individuals with access to your workspace.
+
+1. Go to **Admin Settings → Users**
+
+The directory displays:
+- Name and Email
+- Current Role
+- Status (Active, Invited, Suspended)
+- Last Active date
+- 2FA Status (Enabled/Disabled)
+
+---
+
+## Onboarding Users
+
+### Sending Invitations
+
+1. Click **Invite User**
+2. Enter one or more email addresses (comma separated)
+3. Select the Role (Default: Member)
+4. Click **Send Invites**
+
+### Bulk Import (CSV)
+
+For larger teams, you can invite users in bulk:
+
+1. Click **Import CSV**
+2. Download the template CSV file
+3. Fill in the required columns: `Email`, `FirstName`, `LastName`, `Role`
+4. Upload the CSV and click **Import & Invite**
+
+### Handling Pending Invites
+
+Users who haven't accepted their invitation appear in the **Pending** tab.
+- Invitations expire after **7 days**.
+- You can click **Resend** or **Revoke** next to any pending invitation.
+
+---
+
+## Managing Active Users
+
+Click on any user in the directory to view their profile and manage their access.
+
+### Editing User Details
+Admins can update a user's Job Title or Department, but users must update their own Name, Password, and Profile Photo.
+
+### Changing Roles
+Select a new role from the dropdown. Changes take effect immediately. See [Roles & Permissions](/admin-guide/roles-permissions) for details on what each role can do.
+
+### Resetting Passwords & 2FA
+If a user is locked out:
+- **Reset Password:** Sends a secure password reset link to their email.
+- **Reset 2FA:** Removes their current 2FA configuration. They will be required to set it up again upon their next login. Use this if they lost their device and backup codes.
+
+---
+
+## Offboarding Users
+
+When an employee leaves the company, you must revoke their access to AIBAMS. You have two options: Suspend or Remove.
+
+### Option 1: Suspend User (Recommended)
+
+Suspending a user blocks their login but keeps their account intact.
+
+1. Locate the user and click **⋯** → **Suspend**
+2. The user is immediately logged out of all active sessions.
+
+**Why Suspend?**
+- Prevents login.
+- Keeps their email inbox active so Admins can delegate it or set up forwarding.
+- Keeps them listed as the "Owner" of files they created in FileX.
+- Easy to reactivate if they return.
+
+### Option 2: Remove User (Permanent)
+
+Removing a user deletes their account from the workspace.
+
+1. Locate the user and click **⋯** → **Remove**
+2. You will be prompted to reassign their assets.
+
+**Asset Reassignment:**
+When you remove a user, AIBAMS asks what to do with their data:
+- **Files:** Choose an active user to inherit ownership of the removed user's FileX files.
+- **MailX:** Choose whether to delete their mailbox or convert it into a Shared Inbox.
+
+<Warning>
+  User removal cannot be undone. We strongly recommend Suspending users first, evaluating their data, and only Removing them once you are certain their assets have been properly secured or reassigned.
+</Warning>
+
+---
+
+## Groups & Teams (Coming Soon)
+
+*(Feature currently in development for Professional and Enterprise plans)*
+
+Soon, you will be able to organize users into **Groups** (e.g., "Marketing", "Engineering"). This will allow you to:
+- Share FileX folders with a whole Group at once.
+- Mention `@Engineering` in comments.
+- Apply security policies to specific Groups.

@@ -1,0 +1,191 @@
+---
+title: "MailX — Business Email"
+description: "Professional business email with your custom domain. Full inbox management, AI-assisted drafting, contacts, and calendar integration."
+icon: "envelope"
+---
+
+## What is MailX?
+
+**MailX** is AIBAMS's professional business email solution. It gives your team @yourdomain.com email addresses with a full-featured inbox, AI-powered drafting, contacts, and scheduling — all within your AIBAMS workspace.
+
+---
+
+## Key Features
+
+<CardGroup cols={2}>
+  <Card title="Custom Domain Email" icon="at">
+    Send and receive emails as `you@yourbusiness.com`. Professional, branded email addresses for your entire team.
+  </Card>
+  <Card title="AI-Assisted Drafting" icon="wand-magic-sparkles">
+    FusionX AI helps you draft, improve, and respond to emails. Just click **AI Assist** on any email.
+  </Card>
+  <Card title="Smart Inbox" icon="inbox">
+    AI automatically categorizes emails: Primary, Updates, Promotions, and Spam — keeping your inbox clean.
+  </Card>
+  <Card title="Contacts & CRM" icon="address-book">
+    Built-in contact management with company, role, and relationship history tracking.
+  </Card>
+  <Card title="Scheduling" icon="calendar">
+    Schedule emails to send later. Set follow-up reminders. Share availability for meetings.
+  </Card>
+  <Card title="Shared Inboxes" icon="users">
+    Team-shared inboxes for `info@`, `support@`, or `sales@` — multiple people, one inbox.
+  </Card>
+</CardGroup>
+
+---
+
+## Setting Up MailX
+
+### Step 1: Connect Your Domain
+
+Before creating mailboxes, your domain must be verified in AIBAMS.
+
+<Steps>
+  <Step title="Go to Domain Settings">
+    **Dashboard → Settings → Domains → Add Domain**
+  </Step>
+  <Step title="Enter Your Domain">
+    Type your domain (e.g., `yourbusiness.com`) and click **Add**.
+  </Step>
+  <Step title="Add MX Records">
+    Log into your domain registrar and add these DNS records:
+
+    | Type | Priority | Value |
+    |------|----------|-------|
+    | `MX` | 10 | `mx1.aibams.com` |
+    | `MX` | 20 | `mx2.aibams.com` |
+    | `TXT` | — | `v=spf1 include:spf.aibams.com ~all` |
+    | `CNAME` | — | `mail._domainkey` → `dkim.aibams.com` |
+  </Step>
+  <Step title="Verify Domain">
+    Return to Domain Settings and click **Verify**. A green checkmark confirms success.
+  </Step>
+</Steps>
+
+### Step 2: Create Your First Mailbox
+
+1. Open **MailX** from the dashboard
+2. Click **Create Mailbox**
+3. Choose the email prefix (e.g., `john`, `hello`, `info`)
+4. Set a mailbox password (or use SSO)
+5. Click **Create Mailbox**
+
+Your email address is now ready: `prefix@yourdomain.com`
+
+---
+
+## Using the MailX Inbox
+
+### Composing Emails
+
+1. Click **Compose** (or press `C` as a shortcut)
+2. Enter recipient email(s) in the **To** field
+3. Add a **Subject**
+4. Write your message
+
+**AI Drafting Tips:**
+- Click **Write with AI** to generate a complete draft from a prompt
+- Highlight any text and click **Improve** to refine the writing
+- Use **Summarize thread** to get a quick recap before replying
+
+### Email Organization
+
+| Feature | How to Use |
+|---------|-----------|
+| **Labels** | Right-click an email → Add Label |
+| **Folders** | Drag emails to folders, or set up filters |
+| **Stars** | Click the star icon to flag important emails |
+| **Filters** | Settings → Filters → Create Filter |
+| **Search** | Use the search bar with `from:`, `to:`, `subject:` operators |
+
+### Keyboard Shortcuts
+
+| Shortcut | Action |
+|----------|--------|
+| `C` | Compose new email |
+| `R` | Reply |
+| `A` | Reply All |
+| `F` | Forward |
+| `E` | Archive |
+| `#` | Delete |
+| `J` / `K` | Next / Previous email |
+| `?` | Show all shortcuts |
+
+---
+
+## Shared Inboxes
+
+Shared inboxes allow multiple team members to manage a single email address (e.g., `support@yourbusiness.com`).
+
+### Creating a Shared Inbox
+
+1. **MailX → Settings → Shared Inboxes → Create**
+2. Enter the shared email address prefix (e.g., `support`)
+3. Add members who will have access
+4. Set notification preferences (all messages, assigned only, etc.)
+5. Click **Create Shared Inbox**
+
+### Working in a Shared Inbox
+
+- **Assign** emails to specific team members
+- Set **status** (Open, In Progress, Resolved)
+- Leave **internal notes** visible only to your team
+- View **response metrics** (first reply time, resolution time)
+
+---
+
+## Email Forwarding & Auto-Responders
+
+### Setting Up Forwarding
+
+1. **MailX → Settings → Forwarding**
+2. Add a forwarding address
+3. Choose: **Forward all emails** or **Forward based on rules**
+
+### Auto-Responders
+
+Set up automatic replies for:
+- **Out of Office** — Date-range based automatic reply
+- **Business Hours** — Auto-reply outside working hours
+- **New Inquiries** — Welcome message for first-time contacts
+
+---
+
+## Anti-Spam & Security
+
+MailX includes multi-layer email security:
+
+- **SPF, DKIM, DMARC** — Email authentication standards configured automatically
+- **Spam Filtering** — AI-powered spam detection with 99.9% accuracy
+- **Phishing Protection** — Suspicious link detection and warnings
+- **Encryption** — TLS encryption in transit; optional end-to-end encryption
+
+---
+
+## MailX Limits
+
+| Feature | Early Access | Professional |
+|---------|-------------|-------------|
+| Mailboxes | 5 | 25 |
+| Storage per mailbox | 25 GB | 100 GB |
+| Shared inboxes | 1 | 10 |
+| Email send limit/day | 1,000 | 10,000 |
+| Attachment size | 25 MB | 50 MB |
+| Email aliases | 3 per mailbox | Unlimited |
+
+---
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Emails are going to spam">
+    Ensure all DNS records (SPF, DKIM, DMARC) are correctly configured. Use **MailX → Settings → Domain Health** to run a diagnostic check.
+  </Accordion>
+  <Accordion title="I can't receive emails on my custom domain">
+    Verify that MX records are correctly added. DNS propagation can take up to 48 hours. Check propagation at [mxtoolbox.com](https://mxtoolbox.com).
+  </Accordion>
+  <Accordion title="AI drafting is not available">
+    AI features require FusionX to be active in your plan. Check **Settings → Apps** to ensure FusionX is enabled.
+  </Accordion>
+</AccordionGroup>

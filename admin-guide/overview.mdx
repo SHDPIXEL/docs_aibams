@@ -1,0 +1,99 @@
+﻿---
+title: "Admin Overview"
+description: "Introduction to AIBAMS administration. Manage your organization's workspace, security, and governance."
+icon: "shield-halved"
+---
+
+## The Admin Role
+
+As an **Admin** or **Owner** in AIBAMS, you are responsible for the security, configuration, and governance of your organization's workspace.
+
+The Admin Panel provides centralized control over FusionOS infrastructure, overriding individual user preferences when necessary to enforce corporate policies.
+
+---
+
+## Accessing the Admin Panel
+
+Only users with the **Admin** or **Owner** role can access the Admin Panel.
+
+1. Log into AIBAMS
+2. Click your **Profile Avatar** (top right)
+3. Select **Admin Settings** (shield icon)
+
+<Note>
+  Admin sessions require a recent login. If you've been logged in for a while, you may be prompted to re-enter your password or 2FA code before accessing sensitive settings.
+</Note>
+
+---
+
+## Admin Capabilities
+
+The Admin Panel is divided into several core areas:
+
+<CardGroup cols={2}>
+  <Card title="Workspace Setup" icon="building" href="/admin-guide/workspace-setup">
+    Configure organization details, domains, branding, and billing.
+  </Card>
+  <Card title="User Management" icon="users-gear" href="/admin-guide/user-management">
+    Invite, suspend, or remove users. Manage team structure.
+  </Card>
+  <Card title="Roles & Permissions" icon="user-lock" href="/admin-guide/roles-permissions">
+    Assign RBAC roles and control who has access to which applications.
+  </Card>
+  <Card title="Security Settings" icon="lock" href="/admin-guide/security-settings">
+    Enforce 2FA, password policies, session timeouts, and IP restrictions.
+  </Card>
+  <Card title="Audit Logs" icon="list-check" href="/admin-guide/audit-logs">
+    Review a tamper-proof log of all actions taken within the workspace.
+  </Card>
+  <Card title="Integrations" icon="plug" href="/admin-guide/integrations">
+    Manage API keys, webhooks, and third-party app connections.
+  </Card>
+</CardGroup>
+
+---
+
+## Owner vs. Admin
+
+Understanding the difference between the Owner and Admin roles is crucial:
+
+| Capability | Owner | Admin |
+|------------|-------|-------|
+| Manage billing & invoices | | |
+| Delete the entire workspace | | |
+| Transfer ownership | | |
+| Access all Admin settings | | |
+| Manage users & roles | | |
+| View audit logs | | |
+
+There can only be **one Owner** per workspace. The Owner is typically the person who originally created the AIBAMS account.
+
+### Transferring Ownership
+
+If the current Owner needs to leave the organization or hand over responsibility:
+
+1. The current Owner goes to **Admin Settings → Workspace → Ownership**
+2. Select a current Admin to become the new Owner
+3. Confirm with password and 2FA
+4. The previous Owner is automatically downgraded to an Admin role
+
+---
+
+## Admin Best Practices
+
+<AccordionGroup>
+  <Accordion title="Enforce 2FA for all users">
+    Don't make 2FA optional. Go to **Security Settings** and mandate 2FA for all accounts. This is the single most effective way to secure your workspace.
+  </Accordion>
+  <Accordion title="Regularly review Audit Logs">
+    Make it a habit to check the **Audit Logs** weekly for unusual login locations, mass file deletions, or unexpected permission changes.
+  </Accordion>
+  <Accordion title="Apply the Principle of Least Privilege">
+    Only grant Admin access to team members who explicitly need to manage settings. Most users should be **Members**. Use the **Viewer** role for contractors or clients.
+  </Accordion>
+  <Accordion title="Offboard users immediately">
+    When an employee leaves, suspend or remove their account immediately in **User Management**. This revokes access to all apps and data, while preserving the files and emails they created.
+  </Accordion>
+</AccordionGroup>
+
+

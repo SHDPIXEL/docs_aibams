@@ -1,0 +1,190 @@
+﻿---
+title: "Team Collaboration"
+description: "Invite team members, assign roles, collaborate on files and emails, and manage team communication within AIBAMS."
+icon: "users"
+---
+
+## Team Collaboration in AIBAMS
+
+AIBAMS is built for teams. From shared inboxes to collaborative file editing and AI assistance, your entire team can operate efficiently from one unified platform.
+
+---
+
+## Inviting Team Members
+
+### Send an Invitation
+
+1. Navigate to **Settings → Team Members**
+2. Click **Invite Member**
+3. Enter the team member's email address
+4. Select their **role** (see Role Definitions below)
+5. Optionally add a **personal message** to the invitation
+6. Click **Send Invitation**
+
+The invitee receives an email with a link to accept the invitation and set up their account. They'll join your organization's workspace automatically.
+
+<Note>
+  Invited team members don't need to purchase a separate plan — they operate under your organization's subscription.
+</Note>
+
+### Invitation Status
+
+Track outstanding invitations from **Settings → Team Members → Pending Invitations**:
+
+| Status | Meaning |
+|--------|---------|
+| **Pending** | Invitation sent, not yet accepted |
+| **Expired** | Invitation link expired after 7 days |
+| **Accepted** | Member has joined the workspace |
+
+To resend or cancel an invitation, click the **⋯** menu next to any pending invitation.
+
+---
+
+## Roles & Permissions
+
+AIBAMS uses role-based access control (RBAC). Each role has a defined set of permissions:
+
+| Role | Description |
+|------|-------------|
+| **Owner** | Full control over workspace, billing, and all settings. Only one owner per workspace. |
+| **Admin** | Can manage members, configure apps, and access admin settings. Cannot change billing. |
+| **Member** | Standard access to all apps. Cannot access team/billing settings. |
+| **Viewer** | Read-only access. Can view files and emails but cannot create or edit. |
+
+### Detailed Permissions
+
+| Permission | Owner | Admin | Member | Viewer |
+|-----------|-------|-------|--------|--------|
+| Access all apps | | | | |
+| Create/edit content | | | | |
+| Share files externally | | | | |
+| Invite team members | | | | |
+| Manage roles | | | | |
+| Access admin settings | | | | |
+| View audit logs | | | | |
+| Manage billing | | | | |
+| Transfer ownership | | | | |
+
+### Changing a Member's Role
+
+1. **Settings → Team Members**
+2. Find the team member
+3. Click their current role badge
+4. Select the new role from the dropdown
+5. Confirm the change
+
+---
+
+## Collaborating on Files (FileX)
+
+### Sharing Files with Your Team
+
+1. Right-click any file or folder in FileX
+2. Click **Share → Invite People**
+3. Type a team member's name or email
+4. Set permission: **Can View**, **Can Comment**, or **Can Edit**
+5. Click **Share**
+
+Shared files appear in the recipient's **FileX → Shared with Me** section.
+
+### Real-Time Collaboration
+
+For supported document types (`.docx`, `.xlsx`, text files):
+- Multiple team members can edit simultaneously
+- Changes appear in real-time
+- Each editor's cursor is shown with their name
+- Full version history tracks who changed what
+
+### Comments on Files
+
+Leave contextual feedback on any file:
+1. Open the file
+2. Highlight text or click on an area
+3. Click the **Comment** icon
+4. Type your comment and hit **Enter**
+
+Teammates see comment notifications and can reply to create threaded discussions.
+
+---
+
+## Collaborating on Email (MailX)
+
+### Shared Inboxes
+
+Shared inboxes are the best way for teams to manage a common email address:
+
+- **`support@yourdomain.com`** — Customer service team
+- **`info@yourdomain.com`** — General inquiries
+- **`sales@yourdomain.com`** — Sales team
+
+Any team member with access can see, respond to, assign, and resolve emails in a shared inbox.
+
+See the [MailX shared inbox guide](/fusion-suite/mailx#shared-inboxes) for setup instructions.
+
+### Email Assignment
+
+In a shared inbox, assign specific emails to team members:
+
+1. Open the email
+2. Click **Assign To**
+3. Select a team member
+4. The email moves to their queue and they receive a notification
+
+---
+
+## Team Activity & Visibility
+
+### Activity Feed
+
+The dashboard's **Activity Feed** shows recent actions by all team members (visible to Admins and Owners):
+
+- Who uploaded what file
+- Emails sent from the shared inbox
+- AI tasks run by team members
+- Settings changes made
+
+### Member Status
+
+Team members show an **active status indicator** in:
+- The team member list
+- Shared file collaborators
+- Shared inbox assignments
+
+---
+
+## Best Practices for Team Collaboration
+
+<AccordionGroup>
+  <Accordion title="Set clear folder structures in FileX">
+    Create a standardized folder structure before your team starts uploading. For example: `Clients / [Client Name] / [Project Name]`. Consistency saves hours of searching later.
+  </Accordion>
+  <Accordion title="Use Shared Inboxes for team email">
+    Avoid routing business emails to personal mailboxes. Set up `info@`, `support@`, and `sales@` shared inboxes so nothing falls through the cracks when someone is unavailable.
+  </Accordion>
+  <Accordion title="Leverage FusionX for team summaries">
+    At the end of each week, ask FusionX: *"Summarize this week's team activity — emails sent, files uploaded, and tasks completed."* Use this for team standup or reporting.
+  </Accordion>
+  <Accordion title="Assign the minimum required role">
+    Follow the principle of least privilege. Give team members only the access they need. Assign **Viewer** to clients or contractors who shouldn't edit files.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Removing Team Members
+
+1. **Settings → Team Members**
+2. Click **⋯** next to the member's name
+3. Click **Remove Member**
+4. Confirm removal
+
+After removal:
+- The member loses immediate access to all apps
+- Their created files and emails remain in the workspace
+- Any files shared only with them need to be reassigned
+
+<Warning>
+  Removing a member does not delete their work. Documents, emails, and files they created remain in the workspace and can be accessed by Admins and Owners.
+</Warning>
+

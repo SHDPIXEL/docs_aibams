@@ -1,0 +1,189 @@
+---
+title: "FileX — Cloud Storage"
+description: "Secure, encrypted cloud storage for all your business files. Upload, organize, share, and collaborate — from anywhere."
+icon: "folder-open"
+---
+
+## What is FileX?
+
+**FileX** is AIBAMS's enterprise-grade cloud storage solution. It provides a secure, organized space for all your business documents, media, and data — with built-in sharing, version history, and AI-powered file management.
+
+---
+
+## Key Features
+
+<CardGroup cols={2}>
+  <Card title="Secure Storage" icon="shield">
+    AES-256 encryption at rest. TLS in transit. Your files are private and protected.
+  </Card>
+  <Card title="Smart Organization" icon="folder-tree">
+    Folder hierarchies, color-coded labels, and AI auto-tagging to keep files organized.
+  </Card>
+  <Card title="Easy Sharing" icon="share-nodes">
+    Share files with team members or external clients via secure, expiring links.
+  </Card>
+  <Card title="Version History" icon="clock-rotate-left">
+    Every file change is versioned. Restore any previous version with one click.
+  </Card>
+  <Card title="AI File Intelligence" icon="robot">
+    Ask FusionX to summarize, analyze, or extract data from any stored document.
+  </Card>
+  <Card title="Offline Access" icon="wifi-slash">
+    Mark files for offline access — available even without internet connection.
+  </Card>
+</CardGroup>
+
+---
+
+## Uploading Files
+
+### Drag & Drop Upload
+
+1. Open **FileX** from the dashboard
+2. Navigate to the target folder
+3. Drag files from your computer and drop them into the FileX window
+4. Upload progress is shown in the bottom status bar
+
+### File Browser Upload
+
+1. Click the **Upload** button (↑ icon)
+2. Select files or an entire folder
+3. Click **Open** to begin upload
+
+<Tip>
+  You can upload entire folder structures by dragging a folder into FileX. The folder hierarchy is preserved.
+</Tip>
+
+### Supported File Types
+
+FileX supports all common file formats:
+
+| Category | Formats |
+|----------|---------|
+| Documents | `.pdf`, `.doc`, `.docx`, `.txt`, `.odt` |
+| Spreadsheets | `.xls`, `.xlsx`, `.csv`, `.ods` |
+| Presentations | `.ppt`, `.pptx`, `.key` |
+| Images | `.jpg`, `.png`, `.gif`, `.svg`, `.webp` |
+| Video | `.mp4`, `.mov`, `.avi`, `.mkv` |
+| Audio | `.mp3`, `.wav`, `.flac`, `.aac` |
+| Archives | `.zip`, `.rar`, `.tar`, `.gz` |
+| Code | `.js`, `.py`, `.json`, `.html`, `.css`, and more |
+
+---
+
+## Organizing Files
+
+### Folders
+
+- **Create a folder:** Click **New Folder** → Enter name → Press **Enter**
+- **Move files:** Drag files into folders, or right-click → **Move To**
+- **Rename:** Right-click → **Rename**
+- **Delete:** Right-click → **Delete** (goes to Trash for 30 days before permanent deletion)
+
+### Labels & Tags
+
+Color-code files for quick identification:
+
+1. Right-click a file or folder
+2. Click **Add Label**
+3. Choose a color (Red, Orange, Yellow, Green, Blue, Purple)
+
+Labels filter: Use the **Labels** panel in the left sidebar to filter by color.
+
+### Search
+
+Use the **Search** bar at the top:
+
+- `name: proposal` — search by file name
+- `type: pdf` — filter by file type
+- `modified: last-week` — filter by modification date
+- `shared: true` — find shared files
+
+---
+
+## Sharing Files
+
+### Share with Team Members
+
+1. Right-click a file or folder
+2. Click **Share**
+3. Type the name or email of a team member
+4. Set permission level:
+   - **Can View** — read-only access
+   - **Can Comment** — view + leave comments
+   - **Can Edit** — full edit access
+5. Click **Share**
+
+### Share with External Users
+
+1. Right-click a file
+2. Click **Share → Create Link**
+3. Configure link settings:
+   - **Access:** Anyone with link / Password-protected
+   - **Permissions:** View only / Download allowed
+   - **Expiry:** Set a date after which the link expires
+4. Copy and share the link
+
+<Warning>
+  External sharing links bypass authentication. Only use them for non-sensitive files, and always set an expiry date.
+</Warning>
+
+---
+
+## Version History
+
+FileX automatically saves versions every time a file is modified.
+
+### Restoring a Previous Version
+
+1. Right-click the file → **Version History**
+2. Browse the version timeline
+3. Preview any version by clicking on it
+4. Click **Restore** to revert to that version
+
+<Note>
+  Version history is retained for **30 days** on Early Access plans and **1 year** on Professional/Enterprise plans.
+</Note>
+
+---
+
+## AI-Powered File Features
+
+### Summarize Documents with FusionX
+
+1. Click on a `.pdf`, `.docx`, or `.txt` file to open it
+2. Click the **FusionX** icon in the top-right corner
+3. Ask anything:
+   - *"Summarize this contract in 3 bullet points"*
+   - *"What are the key deadlines mentioned in this document?"*
+   - *"Extract all company names from this report"*
+
+### Auto-Tag & Categorize
+
+Enable **Auto-Tag** in FileX Settings to let AI automatically tag new uploads with relevant keywords — making search and organization effortless.
+
+---
+
+## FileX Storage Limits
+
+| Plan | Storage | Max File Size | Version History |
+|------|---------|--------------|-----------------|
+| Early Access | 100 GB | 5 GB | 30 days |
+| Professional | 500 GB | 25 GB | 1 year |
+| Enterprise | Custom | Unlimited | Unlimited |
+
+---
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Upload is stuck or failing">
+    Check your internet connection. For large files, ensure you have enough storage quota. Check **FileX → Storage** to see current usage. Try a different browser if issues persist.
+  </Accordion>
+  <Accordion title="I can't find a shared file">
+    Shared files appear in **FileX → Shared with Me**. If you don't see it, ask the sender to confirm the share was sent to your correct email address.
+  </Accordion>
+  <Accordion title="File is not being summarized by AI">
+    AI document analysis works on text-based files (PDF, DOCX, TXT). Scanned PDFs (image-based) may not be readable. Ensure FusionX is enabled in your plan settings.
+  </Accordion>
+</AccordionGroup>

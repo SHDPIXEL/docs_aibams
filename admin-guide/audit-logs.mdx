@@ -1,0 +1,118 @@
+---
+title: "Audit Logs"
+description: "Monitor and review a tamper-proof record of all activity within your AIBAMS workspace."
+icon: "list-check"
+---
+
+## What are Audit Logs?
+
+The Audit Log is a continuous, immutable record of events that occur within your AIBAMS workspace. It provides Admins and Owners with visibility into "who did what, when, and from where."
+
+Audit Logs are crucial for security investigations, compliance reporting, and troubleshooting.
+
+1. Go to **Admin Settings → Security → Audit Logs**
+
+---
+
+## Log Retention
+
+Log retention depends on your AIBAMS subscription plan:
+
+| Plan | Retention Period |
+|------|------------------|
+| Early Access | 90 days |
+| Professional | 1 year |
+| Enterprise | Infinite (or custom policy) |
+
+If you need to keep logs longer than your retention period, you must manually export them or use the Log Streaming integration (Enterprise).
+
+---
+
+## What is Logged?
+
+AIBAMS logs events across five main categories:
+
+### 1. Authentication Events
+- Successful logins
+- Failed login attempts (invalid password, failed 2FA)
+- Password changes and resets
+- 2FA enablement/disablement
+- Session terminations (Sign out, Sign out all devices)
+
+### 2. Workspace & Admin Events
+- User invitations, suspensions, and removals
+- Role changes (e.g., Member promoted to Admin)
+- Billing changes (Plan upgrades, payment method updates)
+- Domain additions and verifications
+- Security policy changes (e.g., enforcing 2FA)
+
+### 3. Data & File Events (FileX)
+- File uploads and deletions
+- Folder creation and deletion
+- External sharing link creation and modification
+- Permission changes on files/folders
+- Large bulk downloads
+
+### 4. Communication Events (MailX)
+- Mailbox creation and deletion
+- Shared Inbox membership changes
+- Forwarding rule creation
+- *Note: The content of emails is NOT logged in the Audit Log for privacy reasons.*
+
+### 5. AI Events (FusionX)
+- Creation and deletion of Automation Workflows
+- Changes to AI Memory settings
+- API key generation and usage
+
+---
+
+## Reading the Audit Log
+
+Each entry in the Audit Log contains:
+
+- **Timestamp:** The exact date and time (in UTC, localized to your browser).
+- **Actor:** Who performed the action (User Name, Email, or System).
+- **Event Action:** What happened (e.g., `user.login.success`, `file.share.created`).
+- **Target:** The object affected (e.g., the specific file name, the email address of the invited user).
+- **IP Address:** The IP address from which the action originated.
+- **Location & Device:** Estimated geographic location and the browser/OS used.
+
+Click on any row to view the full JSON payload of the event, which contains deeper technical metadata.
+
+---
+
+## Searching and Filtering
+
+Use the filter bar at the top of the Audit Logs page to narrow down events:
+
+- **By Date Range:** Select a start and end date.
+- **By Actor:** Search for actions performed by a specific user email.
+- **By Event Type:** Filter by category (e.g., only show Authentication events).
+- **By IP Address:** Search for all activity originating from a specific IP.
+
+<Tip>
+  If you suspect a compromised account, filter by the user's email and look for successful logins from unusual IP addresses or locations.
+</Tip>
+
+---
+
+## Exporting Logs
+
+You can export logs for external analysis in SIEM tools (like Splunk or Datadog) or for compliance archiving.
+
+1. Apply any necessary filters.
+2. Click the **Export** button (top right).
+3. Choose the format: **CSV** or **JSON**.
+4. The download will begin immediately.
+
+*Note: Exports are limited to 10,000 rows per file. If you need a larger export, use the Date Range filter to break it into smaller chunks.*
+
+---
+
+## Log Streaming (Enterprise Only)
+
+Enterprise customers can bypass manual exports and stream Audit Logs in real-time directly to their security monitoring tools.
+
+1. Go to **Admin Settings → Integrations → Log Streaming**
+2. Supported destinations: Amazon S3, Datadog, Splunk HTTP Event Collector (HEC), and generic Webhooks.
+3. Configure the destination credentials and select which event categories to stream.

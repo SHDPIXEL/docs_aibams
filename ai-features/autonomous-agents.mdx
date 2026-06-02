@@ -1,0 +1,103 @@
+﻿---
+title: "Autonomous Agents"
+description: "Deploy AI agents that run in the background, monitoring systems and performing complex, multi-step tasks independently."
+icon: "robot-astromech"
+---
+
+## What are Autonomous Agents?
+
+While the FusionX Assistant requires you to prompt it for every action, **Autonomous Agents** are AI workers that run independently in the background.
+
+You assign an Agent a goal, give it access to specific tools (like MailX or FileX), and it determines the necessary steps to accomplish that goal, executing them without further human intervention.
+
+---
+
+## Types of Agents
+
+AIBAMS provides several pre-configured agent types, optimized for different business functions:
+
+<CardGroup cols={2}>
+  <Card title="The Organizer" icon="folder-tree">
+    Monitors a FileX folder. Automatically renames, tags, and sorts incoming files based on their content.
+  </Card>
+  <Card title="The Triage Agent" icon="inbox">
+    Monitors a MailX Shared Inbox (e.g., `support@`). Categorizes emails, drafts suggested replies, and assigns them to the right team member.
+  </Card>
+  <Card title="The Researcher" icon="magnifying-glass-chart">
+    Given a topic, searches the web, analyzes documents in your workspace, and compiles a comprehensive report.
+  </Card>
+  <Card title="The Monitor" icon="eye">
+    Watches specific metrics or data sources and sends an alert if anomalies are detected (e.g., a spike in website contact form submissions).
+  </Card>
+</CardGroup>
+
+---
+
+## Deploying an Agent
+
+To create and deploy an agent:
+
+1. Go to **FusionX → Agents**
+2. Click **Deploy New Agent**
+3. **Select a Template** or choose "Custom Agent"
+4. **Configure the Goal:** Describe exactly what the agent should achieve.
+   - *Example: "Monitor the 'Invoices' folder in FileX. Whenever a new PDF is uploaded, extract the total amount, vendor name, and due date, and log it into the 'Finance Tracking.xlsx' spreadsheet."*
+5. **Assign Tools:** Grant the agent access to the specific apps it needs (e.g., FileX Read/Write).
+6. **Set the Trigger:**
+   - **Continuous:** Runs 24/7, reacting to events instantly.
+   - **Scheduled:** Runs at a specific time (e.g., every Friday at 5 PM).
+   - **Manual:** Only runs when you click "Start".
+7. Click **Deploy**.
+
+---
+
+## Agent Supervision & Safety
+
+We built Autonomous Agents with strict guardrails to ensure they operate safely within your business.
+
+### 1. Human-in-the-Loop (HITL) Approval
+By default, destructive actions (like deleting files or sending emails to external clients) require human approval. 
+
+When an agent reaches an approval step, it pauses and sends a notification. You can review its proposed action in the Agent Dashboard and click **Approve** or **Reject**. You can turn off HITL for trusted workflows.
+
+### 2. Strict Tool Scoping
+Agents only have access to the specific tools and data you assign them. An agent tasked with organizing files cannot read your emails unless explicitly granted MailX access.
+
+### 3. Execution Limits
+To prevent runaway processes, every agent is subject to execution limits (e.g., max 50 actions per run, max 10 minutes runtime). If an agent hits a limit, it pauses and notifies the owner.
+
+---
+
+## Monitoring Agent Activity
+
+You can track exactly what your agents are doing at any time.
+
+1. Go to **FusionX → Agents**
+2. Click on an active Agent to view its **Run Log**.
+
+The Run Log shows the agent's "thought process"—how it broke down the goal, which tools it decided to use, the results of those tool calls, and its final action.
+
+| Status | Meaning |
+|--------|---------|
+| **Running** | Currently executing a task. |
+| **Waiting** | Paused, waiting for Human-in-the-Loop approval. |
+| **Sleeping** | Continuous agent waiting for a trigger event. |
+| **Failed** | Encountered an error or hit an execution limit. |
+| **Stopped** | Manually halted by a user. |
+
+---
+
+## Advanced: Multi-Agent Workflows
+
+*(Enterprise Feature)*
+
+For highly complex processes, you can chain multiple agents together. 
+
+For example, an onboarding workflow:
+1. **Agent 1 (Triage)** receives a signed contract via email and saves it to FileX.
+2. **Agent 2 (Data Extractor)** reads the contract, extracts the client's details, and passes them to Agent 3.
+3. **Agent 3 (Provisioner)** uses those details to generate a welcome packet and send the onboarding email.
+
+To set up multi-agent workflows, use the **Workflow Builder** tab in the Agents interface.
+
+

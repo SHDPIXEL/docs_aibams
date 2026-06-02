@@ -1,0 +1,182 @@
+---
+title: "Account Settings"
+description: "Manage your AIBAMS profile, security settings, preferences, and connected accounts."
+icon: "sliders"
+---
+
+## Account Settings Overview
+
+Access all account settings from **Profile Avatar → Account Settings** in the top-right corner.
+
+Settings are organized into four sections:
+
+- **Profile** — Personal information and display preferences
+- **Security** — Password, 2FA, and active sessions
+- **Preferences** — Theme, language, timezone, notifications
+- **Connected Accounts** — Linked OAuth providers
+
+---
+
+## Profile Settings
+
+### Updating Your Profile
+
+Navigate to **Settings → Profile**:
+
+| Field | How to Update |
+|-------|-------------|
+| **Full Name** | Click the field, edit, click **Save** |
+| **Profile Photo** | Click the avatar circle → Upload or remove photo |
+| **Job Title** | Enter your role within your organization |
+| **Bio** | Short description (visible to team members) |
+| **Phone Number** | Required for SMS-based 2FA |
+
+### Changing Your Email
+
+<Warning>
+  Email changes require verification on both the old and new email address. This process takes ~5 minutes.
+</Warning>
+
+1. **Settings → Profile → Change Email**
+2. Enter your new email address
+3. Click **Send Verification**
+4. Check both your old and new inbox for verification links
+5. Click both links to confirm the change
+
+---
+
+## Security Settings
+
+### Changing Your Password
+
+1. **Settings → Security → Change Password**
+2. Enter your **current password**
+3. Enter your **new password** (must meet strength requirements)
+4. Confirm the new password
+5. Click **Update Password**
+
+<Note>
+  After a password change, all other active sessions will be signed out for security.
+</Note>
+
+### Two-Factor Authentication (2FA)
+
+#### Enable 2FA
+
+1. **Settings → Security → Two-Factor Authentication**
+2. Click **Enable 2FA**
+3. Open your authenticator app (Google Authenticator, Authy, 1Password)
+4. Scan the QR code displayed
+5. Enter the 6-digit code from the app to verify
+6. **Save your backup codes** — store them securely
+
+#### Disable 2FA
+
+1. **Settings → Security → Two-Factor Authentication**
+2. Click **Disable 2FA**
+3. Enter your password to confirm
+
+<Warning>
+  Disabling 2FA reduces your account security. Only disable it if you're switching authenticator apps — re-enable it immediately after.
+</Warning>
+
+### Active Sessions
+
+See all devices currently signed into your account:
+
+1. **Settings → Security → Active Sessions**
+2. View each session: device type, location, last active time
+3. Click **Sign Out** next to any session you don't recognize
+4. Click **Sign Out All Other Devices** to revoke all other sessions at once
+
+<Tip>
+  Regularly review active sessions. Unrecognized sessions may indicate unauthorized access — change your password immediately if you see anything suspicious.
+</Tip>
+
+---
+
+## Preferences
+
+### Appearance
+
+| Setting | Options |
+|---------|---------|
+| **Theme** | Light / Dark / System |
+| **Accent Color** | Default (White) / Custom (Enterprise) |
+| **Font Size** | Small / Medium / Large |
+
+### Language & Region
+
+| Setting | Description |
+|---------|-------------|
+| **Language** | Interface language (English, and more coming) |
+| **Timezone** | Used for scheduling, timestamps, and reports |
+| **Date Format** | DD/MM/YYYY or MM/DD/YYYY |
+| **Time Format** | 12-hour or 24-hour |
+
+### Notification Preferences
+
+Configure what notifications you receive and how:
+
+1. **Settings → Preferences → Notifications**
+2. Toggle per-app notifications:
+   - **MailX** — New email, digest, important senders
+   - **FileX** — Shared with me, upload complete
+   - **FusionX** — Task complete, automation results
+   - **System** — Billing alerts, security notices
+3. Set delivery method: **In-app**, **Email**, **Browser Push**
+4. Configure **Quiet Hours** — no notifications during set time ranges
+
+---
+
+## Connected Accounts
+
+### Linking Google Account
+
+1. **Settings → Connected Accounts**
+2. Click **Connect Google**
+3. Sign in with your Google account
+4. Authorize AIBAMS permissions
+5. Google is now linked for one-click sign-in
+
+### Removing Linked Accounts
+
+1. **Settings → Connected Accounts**
+2. Click **Disconnect** next to the provider
+3. Confirm disconnection
+
+<Note>
+  If your only sign-in method is a linked account (no password set), you must add a password before disconnecting the linked account.
+</Note>
+
+---
+
+## Privacy Controls
+
+### Data Export
+
+Download all your AIBAMS data (GDPR compliance):
+
+1. **Settings → Privacy → Export My Data**
+2. Click **Request Export**
+3. You'll receive an email within 24 hours with a download link
+
+The export includes:
+- Profile and account information
+- All emails (MailX)
+- All files metadata (FileX)
+- AI conversation history (FusionX)
+- Audit log of your actions
+
+### Account Deletion
+
+<Warning>
+  Account deletion is **permanent and irreversible**. All data is deleted immediately and cannot be recovered.
+</Warning>
+
+1. **Settings → Privacy → Delete Account**
+2. Read the consequences carefully
+3. Enter your password to confirm
+4. Click **Permanently Delete Account**
+
+If you have an active subscription, cancel it first from **Settings → Billing**.

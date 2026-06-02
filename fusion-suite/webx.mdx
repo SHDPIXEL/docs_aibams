@@ -1,0 +1,208 @@
+---
+title: "WebX — AI Website Builder"
+description: "Build, customize, and deploy professional websites using AI. No coding required. Custom domains, SEO, and responsive design built in."
+icon: "globe"
+---
+
+## What is WebX?
+
+**WebX** is AIBAMS's AI-powered website builder. It enables anyone — regardless of technical skill — to create and deploy a professional, fully functional website within minutes.
+
+Simply **describe your business** in plain language, and WebX's AI generates a complete, live website tailored to your needs.
+
+---
+
+## Key Features
+
+<CardGroup cols={2}>
+  <Card title="AI Generation" icon="wand-magic-sparkles">
+    Describe your site in plain text — WebX generates the full design, content, and layout automatically.
+  </Card>
+  <Card title="Custom Domain" icon="at">
+    Connect your own domain (e.g., `yourcompany.com`) and go live with a professional web address.
+  </Card>
+  <Card title="Responsive Design" icon="mobile">
+    All websites are automatically optimized for desktop, tablet, and mobile devices.
+  </Card>
+  <Card title="SEO Ready" icon="magnifying-glass">
+    Built-in SEO meta tags, structured data, sitemap generation, and performance optimization.
+  </Card>
+  <Card title="Contact Forms" icon="envelope">
+    Built-in contact forms that route submissions directly to your MailX inbox.
+  </Card>
+  <Card title="Template Library" icon="palette">
+    Choose from professionally designed templates if you prefer a starting point over full AI generation.
+  </Card>
+</CardGroup>
+
+---
+
+## Getting Started with WebX
+
+### Option 1: AI-Generated Website
+
+<Steps>
+  <Step title="Open WebX">
+    From the AIBAMS dashboard, click **WebX**.
+  </Step>
+  <Step title="Describe Your Business">
+    Click **Generate with AI** and enter a description of your business:
+
+    ```
+    Example: "We are a digital marketing agency specializing in social media 
+    management for restaurants. We want a modern, professional website with 
+    a dark theme, services section, portfolio gallery, and contact form."
+    ```
+  </Step>
+  <Step title="Review the Generated Site">
+    WebX generates your site in 30–60 seconds. Review:
+    - **Layout and structure**
+    - **Content and copy**
+    - **Color scheme and typography**
+    - **Navigation structure**
+  </Step>
+  <Step title="Edit and Customize">
+    Use the visual editor to modify any element:
+    - Click any text to edit it
+    - Drag sections to reorder them
+    - Change colors from the **Design** panel
+    - Add or remove sections from the **Add Section** menu
+  </Step>
+  <Step title="Connect Your Domain">
+    Go to **Settings → Domain** within WebX and connect your custom domain.
+  </Step>
+  <Step title="Publish">
+    Click **Publish** to make your site live. Changes publish instantly.
+  </Step>
+</Steps>
+
+### Option 2: Start from a Template
+
+1. Open **WebX** from the dashboard
+2. Click **Choose Template**
+3. Browse categories: Business, Portfolio, E-commerce, Blog, Landing Page
+4. Click **Use Template**
+5. Customize the content, colors, and layout
+6. Publish your site
+
+---
+
+## The WebX Editor
+
+### Page Structure
+
+Your website is organized into **sections** — reusable building blocks:
+
+| Section Type | Description |
+|-------------|-------------|
+| **Hero** | Main headline and call-to-action above the fold |
+| **About** | Company information, team, story |
+| **Services** | List of offerings with icons or images |
+| **Portfolio** | Work samples, case studies, gallery |
+| **Testimonials** | Client reviews and social proof |
+| **Pricing** | Plan comparison tables |
+| **Blog** | Article listing and previews |
+| **Contact** | Contact form and information |
+| **Footer** | Links, social media, legal pages |
+
+### Typography & Colors
+
+- Access the **Design Panel** from the right sidebar
+- Choose from pre-paired font combinations
+- Set primary, secondary, and accent colors
+- Preview changes in real-time before publishing
+
+### Adding Custom Pages
+
+1. Click **Pages** in the left sidebar
+2. Click **Add Page**
+3. Enter the page name (this becomes the URL slug)
+4. Add sections to build the page
+5. Set the page's SEO title and meta description
+
+---
+
+## Domain Configuration
+
+### Connecting an Existing Domain
+
+<Steps>
+  <Step title="Go to WebX Settings">
+    Open WebX → **Settings** → **Domain**.
+  </Step>
+  <Step title="Enter Your Domain">
+    Enter your domain (e.g., `example.com`) and click **Continue**.
+  </Step>
+  <Step title="Add DNS Records">
+    Add the following to your DNS provider:
+    
+    | Record Type | Name | Value |
+    |------------|------|-------|
+    | `CNAME` | `www` | `sites.aibams.com` |
+    | `A` | `@` | `76.76.21.241` |
+  </Step>
+  <Step title="Verify & Activate">
+    Return to WebX → Domain Settings and click **Verify Domain**. Once verified, your site is live at your custom domain.
+  </Step>
+</Steps>
+
+<Note>
+  SSL certificates are provisioned automatically. Your site will be served over HTTPS within a few minutes of domain verification.
+</Note>
+
+---
+
+## SEO Settings
+
+Optimize each page for search engines:
+
+1. Go to **Page Settings** (gear icon next to the page name)
+2. Fill in:
+   - **Page Title** — Appears in browser tabs and search results
+   - **Meta Description** — Snippet shown in search results (aim for 150–160 characters)
+   - **Open Graph Image** — Preview image when sharing on social media
+3. Click **Save**
+
+<Tip>
+  Use WebX's built-in **SEO Analyzer** to get real-time suggestions for improving each page's search visibility.
+</Tip>
+
+---
+
+## Contact Form Integration
+
+All WebX contact forms automatically route to:
+- Your **MailX inbox** (primary delivery)
+- A **notification email** to designated team members
+- An optional **webhook** for CRM or automation integrations
+
+To configure form routing: **WebX** → **Settings** → **Forms** → **Routing**.
+
+---
+
+## WebX Limits
+
+| Feature | Early Access | Professional |
+|---------|-------------|-------------|
+| Websites | 1 | 5 |
+| Pages per site | 20 | Unlimited |
+| Storage (media) | 10 GB | 50 GB |
+| Custom domains | 1 | 5 |
+| Form submissions/mo | 500 | 5,000 |
+| Bandwidth | 50 GB | Unlimited |
+
+---
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="My domain isn't connecting">
+    DNS changes can take up to 48 hours to propagate. Verify your DNS records are correctly added and try the **Verify Domain** button again after waiting. Use [dnschecker.org](https://dnschecker.org) to check propagation status.
+  </Accordion>
+  <Accordion title="Site looks different on mobile">
+    Switch to **Mobile Preview** mode (phone icon in the editor toolbar) to see how your site looks on smaller screens. Use the **Layout** panel to adjust spacing and column stacking for mobile.
+  </Accordion>
+  <Accordion title="Contact form submissions aren't arriving">
+    Check **WebX → Settings → Forms → Routing** to confirm the destination inbox is correct. Also check the **MailX** spam folder for the first few submissions.
+  </Accordion>
+</AccordionGroup>

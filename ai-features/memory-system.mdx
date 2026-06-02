@@ -1,0 +1,84 @@
+---
+title: "The Memory System"
+description: "Understand how FusionX learns from your workspace to provide context-aware, highly personalized AI assistance."
+icon: "brain"
+---
+
+## What is the Memory System?
+
+Most AI assistants suffer from "amnesia"—every time you start a new chat, you have to re-explain who you are, what your company does, and how you want things formatted. 
+
+AIBAMS solves this with the **Memory System**. It is a persistent, secure knowledge graph that FusionX uses to store facts, preferences, and context about your business. As you use AIBAMS, FusionX gets smarter and more aligned with your specific operations.
+
+---
+
+## How Memory Works
+
+FusionX builds memory in two ways:
+
+### 1. Implicit Learning (Auto-Memory)
+As you interact with FusionX, it automatically extracts and saves important facts.
+- If you say: *"Draft an email to my manager, Sarah, about the Q3 budget."*
+- FusionX remembers: `[User]'s manager is Sarah.`
+
+### 2. Explicit Instructions
+You can directly tell FusionX to remember something.
+- *"Always format client emails with a professional tone and include our standard sign-off."*
+- *"Remember that the 'Phoenix Project' refers to the upcoming UI redesign."*
+
+Whenever you ask a question or give a command, FusionX secretly searches its memory bank for relevant facts and injects them into the context *before* generating a response.
+
+---
+
+## Types of Memory
+
+Memory in AIBAMS is tiered to ensure privacy and relevance:
+
+### Personal Memory
+Facts and preferences specific to **you**. 
+- *Examples:* Your writing style, your daily schedule, your personal contacts.
+- *Visibility:* Only accessible by your personal FusionX instance.
+
+### Workspace Memory
+Facts relevant to the **entire organization**.
+- *Examples:* The company mission statement, brand guidelines, shared project code names.
+- *Visibility:* Accessible by any team member's FusionX assistant within your workspace.
+
+### Contextual Memory
+Temporary memory attached to a specific **file or email thread**.
+- *Examples:* A summary of a long PDF, or the key decision made in an email chain.
+- *Visibility:* Accessible only when referencing that specific item.
+
+---
+
+## Managing Memory
+
+You have full control over what FusionX remembers. You can view, edit, or delete memories at any time.
+
+1. Go to **FusionX → Memory**
+
+The Memory interface displays a list of learned facts. 
+
+### Adding Memories Manually
+Click **Add Fact** to explicitly define rules or context for FusionX. 
+*Example: "Our target audience is enterprise IT managers in the healthcare sector."*
+
+### Deleting Memories
+If FusionX learned something incorrect or outdated (e.g., a project name changed), locate the fact in the list and click the **Trash icon** to forget it.
+
+### Editing Memories
+Click on any fact to refine it. For example, changing *"Sarah is the Marketing Lead"* to *"Sarah is the VP of Marketing."*
+
+---
+
+## Privacy and Data Security
+
+The Memory System is built with strict isolation:
+
+- **No Cross-Pollination:** Your workspace memory is mathematically isolated. AIBAMS absolutely never uses data or memories from your organization to train models for other customers.
+- **RBAC Enforced:** FusionX respects AIBAMS Roles & Permissions. It will not retrieve memories derived from files or emails that a user does not have permission to view.
+- **Encryption:** All memory graphs are encrypted at rest using AES-256.
+
+<Warning>
+  While workspace memory is shared among your team, FusionX will never reveal your *Personal* memories to other team members. Ensure you verify whether a fact should be saved as Personal or Workspace memory.
+</Warning>

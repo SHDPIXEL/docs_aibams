@@ -1,0 +1,846 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* GLOBAL FONT SETTINGS */
+:root {
+  --font-sans: 'Poppins', sans-serif !important;
+}
+
+body,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+li,
+button,
+input {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* HIDE SCROLLBAR GLOBALLY */
+::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* GLOBAL BORDER RADIUS OVERRIDE */
+
+* {
+  border-radius: 0px !important;
+  -ms-overflow-style: none !important;
+  /* IE and Edge */
+  scrollbar-width: none !important;
+  /* Firefox */
+}
+
+:root {
+  --radius: 0px !important;
+}
+
+.card,
+.card img,
+.card a,
+[data-card] {
+  border-radius: 0 !important;
+}
+
+/* WIDEN MAIN CONTENT AREA (Reduce left/right space) */
+.prose,
+.max-w-3xl,
+.max-w-4xl,
+.max-w-5xl,
+.max-w-6xl {
+  max-width: none !important;
+}
+
+main article>div {
+  padding-left: 24px !important;
+  padding-right: 24px !important;
+}
+
+.rounded-xl,
+.rounded-lg,
+.rounded-md,
+.rounded-sm,
+.rounded-full,
+.rounded,
+[class*="rounded"] {
+  border-radius: 0 !important;
+}
+
+/* Fix Mintlify Sidebar Anchor boxes */
+a>div,
+a:hover>div {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  --tw-ring-shadow: 0 0 #0000 !important;
+  --tw-ring-color: transparent !important;
+  --tw-shadow: 0 0 #0000 !important;
+}
+
+/* INNER PAGES FONT SIZES OVERRIDE (Sidebar & Navbar unaffected) */
+.prose,
+.prose p,
+.prose li,
+.prose a,
+.prose table {
+  font-size: 14px !important;
+}
+
+.prose h1,
+.prose h2 {
+  font-size: 20px !important;
+}
+
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  font-size: 18px !important;
+}
+
+/* CARD HEADINGS FONT SIZE OVERRIDE */
+.card h1,
+.card h2,
+.card h3,
+.card h4,
+.card h5,
+.card h6,
+[data-card] h1,
+[data-card] h2,
+[data-card] h3,
+[data-card] h4,
+[data-card] h5,
+[data-card] h6,
+.card .font-semibold,
+[data-card] .font-semibold {
+  font-size: 16px !important;
+}
+
+/* MAIN PAGE TITLE FONT SIZE OVERRIDE */
+h1#page-title {
+  font-size: 24px !important;
+}
+
+/* LIGHT MODE HOVER STATE (TEXT & ICON) */
+html:not(.dark) a:hover {
+  color: #000000 !important;
+}
+
+html:not(.dark) a:hover svg,
+html:not(.dark) aside a:hover i,
+html:not(.dark) nav a:hover i {
+  color: #000000 !important;
+  fill: #000000 !important;
+  filter: brightness(0) !important;
+}
+
+/* LIGHT MODE ACTIVE STATE (SIDEBAR) */
+html:not(.dark) nav a.active,
+html:not(.dark) nav a[aria-current="page"],
+html:not(.dark) nav a[data-active="true"],
+html:not(.dark) nav a[class*="bg-primary"],
+html:not(.dark) nav a[class*="text-primary"] {
+  background-color: #f3f4f6 !important;
+  /* Force light gray bg on left sidebar */
+  color: #000000 !important;
+  border-radius: 0px !important;
+  /* Ensure no rounded corners */
+}
+
+/* FIX RIGHT SIDEBAR TOC (REMOVE BACKGROUND) */
+html:not(.dark) aside a[href^="#"],
+html:not(.dark) nav a[href^="#"] {
+  background-color: transparent !important;
+}
+
+html:not(.dark) nav a.active *,
+html:not(.dark) nav a[aria-current="page"] *,
+html:not(.dark) nav a[data-active="true"] *,
+html:not(.dark) nav a[class*="bg-primary"] *,
+html:not(.dark) nav a[class*="text-primary"] *,
+html:not(.dark) aside a.active *,
+html:not(.dark) aside a[aria-current="page"] *,
+html:not(.dark) aside a[data-active="true"] *,
+html:not(.dark) aside a[class*="bg-primary"] *,
+html:not(.dark) aside a[class*="text-primary"] * {
+  color: #000000 !important;
+}
+
+html:not(.dark) nav a.active svg,
+html:not(.dark) nav a[aria-current="page"] svg,
+html:not(.dark) nav a[data-active="true"] svg,
+html:not(.dark) nav a[class*="bg-primary"] svg,
+html:not(.dark) nav a[class*="text-primary"] svg,
+html:not(.dark) aside a.active svg,
+html:not(.dark) aside a[aria-current="page"] svg,
+html:not(.dark) aside a[data-active="true"] svg,
+html:not(.dark) aside a[class*="bg-primary"] svg,
+html:not(.dark) aside a[class*="text-primary"] svg {
+  fill: #000000 !important;
+  filter: brightness(0) !important;
+}
+
+/* SEARCH MODAL POSITION FIX */
+div[role="dialog"]:not(.lg\:hidden)>div {
+  padding-top: 100px !important;
+}
+
+/* ADD BORDER TO HEADER SEARCH AND ASK ASSISTANT BUTTONS IN LIGHT MODE */
+html:not(.dark) header button:has(svg):has(span),
+html:not(.dark) header button:has(kbd) {
+  border: 1px #e5e7eb !important;
+}
+
+/* FIX "ASK A QUESTION" / ASSISTANT ICONS (SPARK, SEND, ETC.) */
+html:not(.dark) header button svg {
+  filter: brightness(0) opacity(0.6) !important;
+}
+
+/* Specifically target only the SVGs immediately surrounding the chat inputs, not all SVGs globally */
+html:not(.dark) div:has(> [placeholder*="question"]) svg,
+html:not(.dark) div:has(> [placeholder*="Ask"]) svg,
+html:not(.dark) div:has(> div > [placeholder*="question"]) svg,
+html:not(.dark) div:has(> div > [placeholder*="Ask"]) svg {
+  filter: brightness(0) opacity(0.6) !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+/* REMOVE UNWANTED BACKGROUND FROM SEND/ATTACH BUTTONS (EVEN WHEN TYPING/ACTIVE) */
+html:not(.dark) div:has(> textarea) button,
+html:not(.dark) div:has(> input) button,
+html:not(.dark) div:has(> textarea) .bg-primary,
+html:not(.dark) div:has(> input) .bg-primary,
+html:not(.dark) div:has(> div > textarea) button,
+html:not(.dark) div:has(> div > textarea) .bg-primary {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* FIX INPUT/TEXTAREA FOCUS BORDERS IN LIGHT MODE */
+html:not(.dark) input:focus,
+html:not(.dark) textarea:focus,
+html:not(.dark) div:has(> input:focus),
+html:not(.dark) div:has(> textarea:focus),
+html:not(.dark) div:has(> div > input:focus),
+html:not(.dark) div:has(> div > textarea:focus),
+html:not(.dark) div:has(> div > div > input:focus),
+html:not(.dark) div:has(> div > div > textarea:focus) {
+  border-color: #9ca3af !important;
+  /* Dark Gray border */
+  --tw-ring-color: #9ca3af !important;
+  /* Dark Gray ring */
+  outline: none !important;
+  /* Removed box-shadow: none so the default Mintlify ring shape stays, just changes color */
+}
+
+html:not(.dark) .bg-primary {
+  background-color: #f3f4f6 !important;
+  /* Make user bubbles and avatar backgrounds light gray */
+  color: #000000 !important;
+}
+
+html:not(.dark) .bg-primary *,
+html:not(.dark) .text-primary-content,
+html:not(.dark) .text-primary-content * {
+  color: #000000 !important;
+}
+
+html:not(.dark) .bg-primary svg,
+html:not(.dark) .text-primary-content svg,
+html:not(.dark) .text-primary svg {
+  color: #000000 !important;
+  fill: #000000 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* FIX PORTAL BUTTON IN LIGHT MODE */
+html:not(.dark) header [href*="portal"],
+html:not(.dark) header div:has(> [href*="portal"]),
+html:not(.dark) header button:has([href*="portal"]) {
+  background-color: #ffffff !important;
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+html:not(.dark) header [href*="portal"] * {
+  background-color: transparent !important;
+  background: transparent !important;
+  color: #000000 !important;
+}
+
+/* FIX CARD HOVER BORDERS IN LIGHT MODE (ONLY ACTUAL CARDS) */
+html:not(.dark) .card:hover,
+html:not(.dark) main a.group[class*="border"]:has(p):hover,
+html:not(.dark) main a.group[class*="ring"]:has(p):hover,
+html:not(.dark) article a.group[class*="border"]:has(p):hover,
+html:not(.dark) article a.group[class*="ring"]:has(p):hover {
+  border-color: #d1d5db !important;
+  border-width: 1px !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* FIX TABS & NAVBAR BORDERS */
+/* 1. Remove the bottom border from the specific Top Navbar container you inspected */
+div.h-full.relative.flex-1.flex.items-center.gap-x-4.min-w-0 {
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+header,
+div.sticky.top-0,
+#navbar,
+nav[class*="sticky"] {
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+/* 2. Remove any top border on the tabs container itself */
+div[class*="border"]:has(a[href*="user-guide"]):has(a[href*="admin-guide"]):not(:has(aside)):not(aside *),
+nav[class*="border"]:has(a[href*="user-guide"]):has(a[href*="admin-guide"]):not(:has(aside)):not(aside *) {
+  border-top: none !important;
+}
+
+/* 3. Light mode Tabs bottom border (Gray) */
+html:not(.dark) div[class*="border"]:has(a[href*="user-guide"]):has(a[href*="admin-guide"]):not(:has(aside)):not(aside *),
+html:not(.dark) nav[class*="border"]:has(a[href*="user-guide"]):has(a[href*="admin-guide"]):not(:has(aside)):not(aside *) {
+  border-bottom: 1px solid #d1d5db !important;
+}
+
+/* 4. Dark mode Tabs bottom border (Light) */
+html.dark div[class*="border"]:has(a[href*="user-guide"]):has(a[href*="admin-guide"]):not(:has(aside)):not(aside *),
+html.dark nav[class*="border"]:has(a[href*="user-guide"]):has(a[href*="admin-guide"]):not(:has(aside)):not(aside *) {
+  border-bottom: 1px solid #52525b !important;
+}
+
+/* FIX EYEBROW AND PRIMARY TEXT VISIBILITY IN LIGHT MODE */
+html:not(.dark) .eyebrow,
+html:not(.dark) .text-primary,
+html:not(.dark) .text-primary-light {
+  color: #000000 !important;
+}
+
+/* FIX CARD ICONS VISIBILITY IN LIGHT MODE */
+html:not(.dark) .card svg,
+html:not(.dark) main a.group[class*="border"]:has(p) svg,
+html:not(.dark) main a.group[class*="ring"]:has(p) svg {
+  filter: brightness(0) opacity(0.8) !important;
+}
+
+/* ============================================================== */
+/* UNIFIED HEADER REDESIGN (SINGLE ROW, MODERN SAAS LAYOUT)       */
+/* ============================================================== */
+
+@media (min-width: 1024px) {
+
+  /* 1. Header height limit */
+  #navbar {
+    height: 64px !important;
+  }
+
+  /* The relative wrapper containing both rows */
+  #navbar .max-w-8xl>div>.relative {
+    height: 64px !important;
+    position: relative !important;
+  }
+
+  /* Make the main top row span full height, remove bottom border from it */
+  #navbar .h-16 {
+    height: 64px !important;
+    border-bottom: none !important;
+  }
+
+  /* Ensure the background transition wrapper spans only 64px and keeps the bottom border */
+  #navbar-transition {
+    height: 64px !important;
+    border-bottom: 1px solid rgba(156, 163, 175, 0.35) !important;
+  }
+
+  html.dark #navbar-transition {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18) !important;
+  }
+
+  /* 2. Position the tabs row in the center of the header */
+  #navbar .hidden.lg\:flex.px-12.h-12 {
+    display: flex !important;
+    /* Force display on desktop */
+    position: absolute !important;
+    top: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    height: 64px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    z-index: 10 !important;
+  }
+
+  #navbar .nav-tabs {
+    height: 100% !important;
+    border: none !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 1.5rem !important;
+    /* Space between tabs */
+  }
+
+  #navbar .nav-tabs-item {
+    height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    border: none !important;
+    padding: 0 0.5rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+  }
+
+  /* 3. Scope to the main row of the navbar on desktop to align sections */
+  #navbar .h-16 .h-full.relative.flex-1.flex.items-center {
+    display: flex !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
+    gap: 0.75rem !important;
+    /* space between sections on the right */
+    border-bottom: none !important;
+  }
+
+  /* Left logo container: push to far left */
+  #navbar .h-16 .h-full.relative.flex-1.flex.items-center>div:first-child {
+    flex: none !important;
+    margin-right: auto !important;
+  }
+
+  /* Center search container: place in flex flow next to right group */
+  #navbar .h-16 .h-full.relative.flex-1.flex.items-center>div:nth-child(2) {
+    flex: 0 0 2.25rem !important;
+    width: 2.25rem !important;
+    max-width: 2.25rem !important;
+    min-width: 2.25rem !important;
+    height: 2.25rem !important;
+    order: 2 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 20 !important;
+  }
+
+  /* Right container: place next to search container */
+  #navbar .h-16 .h-full.relative.flex-1.flex.items-center>div:nth-child(3) {
+    flex: none !important;
+    order: 3 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.75rem !important;
+    /* gap between items inside the right container */
+    margin: 0 !important;
+    padding: 0 !important;
+    space-x: 0 !important;
+    /* override tailwind space-x */
+  }
+
+  /* Override Tailwind space-x-4 on the right container */
+  #navbar .h-16 .h-full.relative.flex-1.flex.items-center>div:nth-child(3)>* {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  /* 4. Style Search entry button as an icon */
+  #search-bar-entry {
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin: 0 !important;
+    width: 2.25rem !important;
+    max-width: 2.25rem !important;
+    min-width: 2.25rem !important;
+    height: 2.25rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    color: #71717a !important;
+    /* Zinc 500 */
+    transition: color 0.2s, background-color 0.2s !important;
+    border-radius: 0px !important;
+    flex: 0 0 2.25rem !important;
+  }
+
+  html.dark #search-bar-entry {
+    color: #a1a1aa !important;
+    /* Zinc 400 */
+  }
+
+  #search-bar-entry:hover {
+    background-color: rgba(156, 163, 175, 0.1) !important;
+    color: #18181b !important;
+  }
+
+  html.dark #search-bar-entry:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: #ffffff !important;
+  }
+
+  #search-bar-entry>div>div,
+  #search-bar-entry>span {
+    display: none !important;
+  }
+
+  #search-bar-entry>div {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    height: 100% !important;
+    gap: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  #search-bar-entry svg {
+    display: block !important;
+    width: 1.25rem !important;
+    height: 1.25rem !important;
+    color: currentColor !important;
+    stroke-width: 1.5 !important;
+  }
+
+  /* 5. Style dynamic Assistant button as an icon */
+  #navbar button:not(#search-bar-entry):not(#search-bar-entry-mobile):not(.group.p-2):not(.focus\:outline-0) {
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    width: 2.25rem !important;
+    height: 2.25rem !important;
+    min-width: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    color: #71717a !important;
+    transition: color 0.2s, background-color 0.2s !important;
+    border-radius: 0px !important;
+    order: 2 !important;
+    /* Place it as Assistant (2nd in right container group) */
+  }
+
+  html.dark #navbar button:not(#search-bar-entry):not(#search-bar-entry-mobile):not(.group.p-2):not(.focus\:outline-0) {
+    color: #a1a1aa !important;
+  }
+
+  #navbar button:not(#search-bar-entry):not(#search-bar-entry-mobile):not(.group.p-2):not(.focus\:outline-0):hover {
+    background-color: rgba(156, 163, 175, 0.1) !important;
+    color: #18181b !important;
+  }
+
+  html.dark #navbar button:not(#search-bar-entry):not(#search-bar-entry-mobile):not(.group.p-2):not(.focus\:outline-0):hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: #ffffff !important;
+  }
+
+  #navbar button:not(#search-bar-entry):not(#search-bar-entry-mobile):not(.group.p-2):not(.focus\:outline-0)>span,
+  #navbar button:not(#search-bar-entry):not(#search-bar-entry-mobile):not(.group.p-2):not(.focus\:outline-0)>div,
+  #navbar button:not(#search-bar-entry):not(#search-bar-entry-mobile):not(.group.p-2):not(.focus\:outline-0)>p {
+    display: none !important;
+  }
+
+  #navbar button:not(#search-bar-entry):not(#search-bar-entry-mobile):not(.group.p-2):not(.focus\:outline-0) svg {
+    display: block !important;
+    width: 1.25rem !important;
+    height: 1.25rem !important;
+    color: currentColor !important;
+    stroke-width: 0.8 !important;
+  }
+
+  #navbar button:not(#search-bar-entry):not(#search-bar-entry-mobile):not(.group.p-2):not(.focus\:outline-0) svg * {
+    stroke-width: 0.8 !important;
+  }
+
+  /* 6. Style Portal link as User Icon */
+  #topbar-cta-button {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    order: 3 !important;
+    /* Place it as User (3rd in right container group) */
+  }
+
+  #topbar-cta-button a {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 2.25rem !important;
+    height: 2.25rem !important;
+    padding: 0 !important;
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    color: #71717a !important;
+    transition: color 0.2s, background-color 0.2s !important;
+    border-radius: 0px !important;
+    cursor: pointer !important;
+  }
+
+  html.dark #topbar-cta-button a {
+    color: #a1a1aa !important;
+  }
+
+  #topbar-cta-button a:hover {
+    background-color: rgba(156, 163, 175, 0.1) !important;
+    color: #18181b !important;
+  }
+
+  html.dark #topbar-cta-button a:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: #ffffff !important;
+  }
+
+  #topbar-cta-button a * {
+    display: none !important;
+  }
+
+  #topbar-cta-button a::before {
+    content: "" !important;
+    display: block !important;
+    width: 1.25rem !important;
+    height: 1.25rem !important;
+    background-color: currentColor !important;
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor' stroke-width='1.3'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z' /%3E%3C/svg%3E") !important;
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor' stroke-width='1.3'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z' /%3E%3C/svg%3E") !important;
+    -webkit-mask-repeat: no-repeat !important;
+    mask-repeat: no-repeat !important;
+    -webkit-mask-position: center !important;
+    mask-position: center !important;
+    -webkit-mask-size: contain !important;
+    mask-size: contain !important;
+  }
+
+  /* 7. Style Theme Toggle Icon */
+  #navbar div:has(> button.group.p-2) {
+    order: 4 !important;
+    /* Place it as Theme Toggle (4th/last in right container group) */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  #navbar button.group.p-2 {
+    width: 2.25rem !important;
+    height: 2.25rem !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #71717a !important;
+    transition: color 0.2s, background-color 0.2s !important;
+    border-radius: 0px !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  html.dark #navbar button.group.p-2 {
+    color: #a1a1aa !important;
+  }
+
+  #navbar button.group.p-2:hover {
+    background-color: rgba(156, 163, 175, 0.1) !important;
+    color: #18181b !important;
+  }
+
+  html.dark #navbar button.group.p-2:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: #ffffff !important;
+  }
+
+  #navbar button.group.p-2 svg {
+    width: 1.25rem !important;
+    height: 1.25rem !important;
+    color: currentColor !important;
+    stroke-width: 0.8 !important;
+  }
+
+  #navbar button.group.p-2 svg * {
+    stroke-width: 0.8 !important;
+  }
+}
+
+/* ALIGN RIGHT SIDEBAR WITH MAIN CONTENT AREA */
+@media (min-width: 1280px) {
+  #content-side-layout {
+    top: calc(4rem + 2.5rem - var(--sidenav-move-up, 0px)) !important;
+    /* 4rem (64px) header + 2.5rem (40px) padding top = 6.5rem */
+    height: calc(100vh - 6.5rem) !important;
+  }
+
+  #table-of-contents {
+    margin-top: 0px !important;
+    padding-top: 0.125rem !important;
+    /* Align exactly with main content heading/eyebrow mt-0.5 */
+  }
+}
+
+/* LEFT SIDEBAR ALIGNMENT, REORDERING, AND EXTERNAL LINK INDICATORS */
+@media (min-width: 1024px) {
+  #sidebar {
+    top: 6.5rem !important;
+    /* 104px to match content-area padding-top */
+  }
+
+  #sidebar-content .sticky.top-0 {
+    display: none !important;
+  }
+
+  #navigation-items {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  /* Move external links to the bottom */
+  #navigation-items>ul.list-none {
+    order: 99 !important;
+    margin-top: 2rem !important;
+    margin-bottom: 2rem !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  /* Align external links like standard navigation items, and add hover highlight */
+  #navigation-items>ul.list-none a {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-bottom: 0 !important;
+    padding-left: 1rem !important;
+    padding-right: 0.75rem !important;
+    padding-top: 0.375rem !important;
+    padding-bottom: 0.375rem !important;
+    border-radius: 0px !important;
+    /* keep global sharp radius */
+    transition: background-color 0.2s, color 0.2s !important;
+  }
+
+  #navigation-items>ul.list-none a:hover {
+    background-color: rgba(75, 85, 99, 0.05) !important;
+    /* bg-gray-600/5 */
+  }
+
+  html.dark #navigation-items>ul.list-none a:hover {
+    background-color: rgba(228, 228, 231, 0.05) !important;
+    /* bg-zinc-200/5 */
+  }
+
+  /* Remove top margin from the first doc navigation group so it aligns at the top */
+  #navigation-items>div:first-of-type {
+    margin-top: 0 !important;
+  }
+
+  /* Style external simple arrow icon next to Website, Community, Support, Blog */
+  #navigation-items>ul.list-none a::after {
+    content: "" !important;
+    display: inline-block !important;
+    width: 0.75rem !important;
+    height: 0.75rem !important;
+    margin-left: 0.375rem !important;
+    background-color: currentColor !important;
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='7' y1='17' x2='17' y2='7'/%3E%3Cpolyline points='7 7 17 7 17 17'/%3E%3C/svg%3E") !important;
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='7' y1='17' x2='17' y2='7'/%3E%3Cpolyline points='7 7 17 7 17 17'/%3E%3C/svg%3E") !important;
+    -webkit-mask-repeat: no-repeat !important;
+    mask-repeat: no-repeat !important;
+    -webkit-mask-size: contain !important;
+    mask-size: contain !important;
+    flex-shrink: 0 !important;
+    opacity: 0.5 !important;
+    transition: opacity 0.2s !important;
+  }
+
+  #navigation-items>ul.list-none a:hover::after {
+    opacity: 0.9 !important;
+  }
+}
+
+/* MOBILE UI IMPROVEMENTS */
+
+/* 1. Mobile Header: Replace 3-dot menu with User/Profile icon */
+button[aria-label="More actions"] svg,
+#navbar button[aria-label="More actions"] svg,
+#navbar div.flex.lg\:hidden button.h-7.w-5 svg {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor' stroke-width='1.3'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z' /%3E%3C/svg%3E") !important;
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor' stroke-width='1.3'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z' /%3E%3C/svg%3E") !important;
+}
+
+/* 2. Mobile Sidebar Drawer: Full Height Overlay Alignment */
+div[role="dialog"] div[id^="headlessui-dialog-panel"],
+div[role="dialog"] [class*="headlessui-dialog-panel"],
+div[role="dialog"] div[id="mobile-nav"] {
+  position: relative !important;
+  top: 0 !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+  width: 100% !important;
+  max-width: none !important;
+  padding-top: 4.5rem !important;
+  /* Pushes content below the absolute header row */
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+}
+
+/* Align the close (X) button vertically with the logo and theme toggle inside the panel */
+div[role="dialog"] button.absolute.top-4,
+div[role="dialog"] button.absolute:has(svg) {
+  position: absolute !important;
+  top: 1rem !important;
+  right: 1rem !important;
+  height: 2rem !important;
+  width: 2rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  z-index: 50 !important;
+  margin: 0 !important;
+}
+
+/* Override relative positioning of the navigation items parent wrapper inside the mobile dialog */
+div[role="dialog"] div.relative:has(> div.flex.items-center.justify-between.mb-6) {
+  position: static !important;
+}
+
+/* Position logo, theme toggle, and close button in a single row with consistent spacing */
+div[role="dialog"] div.flex.items-center.justify-between.mb-6 {
+  position: absolute !important;
+  top: 1rem !important;
+  left: 1rem !important;
+  right: 3.5rem !important;
+  /* Ends exactly before the Close button starts (with 0.5rem gap) */
+  height: 2rem !important;
+  margin-bottom: 0 !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  z-index: 40 !important;
+}
+
+/* Remove outer border and background from the theme toggle button on mobile */
+div[role="dialog"] div.flex.items-center.justify-between.mb-6 button {
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}

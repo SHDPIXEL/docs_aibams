@@ -1,0 +1,112 @@
+﻿---
+title: "AI Automation"
+description: "Streamline repetitive tasks by creating rule-based, AI-powered automation workflows across the Fusion Suite."
+icon: "gears"
+---
+
+## What is AI Automation?
+
+While *Autonomous Agents* operate independently to achieve complex goals, **AI Automations** (or Workflows) are strictly rule-based sequences. They follow a classic `If THIS happens, then do THAT` logic, but with the added power of AI to understand context, generate content, and make basic decisions along the way.
+
+Automations are perfect for high-volume, predictable tasks like routing emails, generating standard responses, or sorting files.
+
+---
+
+## The Automation Builder
+
+Access the builder by navigating to **FusionX → Automations**.
+
+An automation consists of three core components:
+
+1. **Trigger:** The event that starts the workflow.
+2. **AI Step (Optional):** Where FusionX analyzes data or generates content.
+3. **Action:** The final execution (sending an email, moving a file, etc.).
+
+---
+
+## Setting up an Automation
+
+Let's build a common workflow: **Automatically categorizing and saving invoice attachments.**
+
+<Steps>
+  <Step title="Choose a Trigger">
+    Click **Create Automation** and select the trigger app.
+    - App: **MailX**
+    - Event: **New Email Received**
+    - Filter: *Condition: Has Attachment is TRUE*
+  </Step>
+
+  <Step title="Add an AI Step">
+    We need AI to determine if the attachment is actually an invoice.
+    - Action: **Analyze Document (FusionX)**
+    - Prompt: *"Review the attached document. Is this an invoice or receipt? If yes, extract the Vendor Name and Total Amount. Format the response as JSON: `{"is_invoice": true/false, "vendor": "name", "amount": "number"}`."*
+  </Step>
+
+  <Step title="Add a Condition (Branching)">
+    We only want to proceed if the document is an invoice.
+    - Logic: **Condition**
+    - Rule: *If `is_invoice` equals `true`*
+  </Step>
+
+  <Step title="Add the Final Action">
+    Save the file to the correct folder.
+    - App: **FileX**
+    - Action: **Save File**
+    - Destination: `Shared/Finance/Invoices`
+    - Rename File To: `[Vendor] - [Amount] - [Date].pdf` *(Using variables extracted by the AI step)*
+  </Step>
+</Steps>
+
+Once configured, click **Activate**. This workflow will now run silently in the background for every incoming email.
+
+---
+
+## Common Automation Templates
+
+FusionX includes pre-built templates for common business use cases. You can activate these with one click from the **Automation Library**:
+
+<CardGroup cols={2}>
+  <Card title="Meeting Notes to Tasks" icon="list-check">
+    **Trigger:** File uploaded to 'Meeting Notes' folder.<br/>
+    **Action:** AI extracts action items and drafts an email assigning them to the relevant team members.
+  </Card>
+  <Card title="Lead Routing" icon="route">
+    **Trigger:** New contact form submission on WebX.<br/>
+    **Action:** AI analyzes the inquiry, determines if it's High/Low priority, and forwards it to the correct sales rep.
+  </Card>
+  <Card title="Weekly Report Generator" icon="chart-bar">
+    **Trigger:** Scheduled (Every Friday at 4 PM).<br/>
+    **Action:** AI summarizes the week's closed support tickets from MailX and saves a PDF report to FileX.
+  </Card>
+  <Card title="Translation Auto-Reply" icon="language">
+    **Trigger:** Email received in a foreign language.<br/>
+    **Action:** AI translates the email to English for you, drafts a reply in the original language, and saves it as a Draft.
+  </Card>
+</CardGroup>
+
+---
+
+## Monitoring and Debugging
+
+### Run History
+Every time an automation triggers, it creates an entry in the **Run History** tab. 
+
+If an automation fails (e.g., an email didn't have an attachment, or the AI couldn't extract the requested data), the Run History will show a **Failed** status.
+
+### Viewing Error Logs
+Click on a failed run to view the execution trace. It will show exactly which step failed and provide an error message (e.g., *Error: Destination folder 'Invoices' does not exist in FileX*), allowing you to quickly fix the configuration.
+
+---
+
+## Automation Limits
+
+Depending on your plan, there are limits to how many automations you can have active and how many times they can run per month.
+
+| Plan | Active Automations | Runs / Month |
+|------|--------------------|--------------|
+| Early Access | 10 | 5,000 |
+| Professional | 50 | 25,000 |
+| Enterprise | Unlimited | Unlimited |
+
+*Note: A single "Run" consumes 1 AI Request from your monthly quota.*
+

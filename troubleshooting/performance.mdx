@@ -1,0 +1,74 @@
+---
+title: "Performance Issues"
+description: "How to resolve slow loading times, sluggish interfaces, and performance bottlenecks."
+icon: "gauge-high"
+---
+
+## General Platform Sluggishness
+
+If the AIBAMS portal generally feels slow or unresponsive:
+
+### 1. Check AIBAMS System Status
+Before troubleshooting locally, check if the issue is on our end. 
+Visit [status.aibams.com](https://status.aibams.com) to view real-time metrics. If there is a degraded performance notice, our engineering team is already working to resolve it.
+
+### 2. Browser Resource Exhaustion
+AIBAMS is a complex, Single Page Application (SPA). If you keep the tab open for weeks without refreshing, your browser may consume excessive memory.
+- **Fix:** Perform a hard refresh of the page (`Ctrl + F5` or `Cmd + Shift + R`). If the browser itself is lagging, restart the browser.
+
+### 3. Outdated Browser
+AIBAMS utilizes modern web APIs (like WebSockets, Service Workers, and WebGL for certain UI elements). 
+- Ensure you are using the latest version of Chrome, Firefox, Safari, or Edge. We do not officially support Internet Explorer or browsers older than 2 years.
+
+---
+
+## FileX Upload/Download Speed
+
+If FileX is taking too long to upload or download documents:
+
+### 1. ISP Throttling
+Some Internet Service Providers throttle connections to cloud storage providers during peak hours.
+- **Test:** Run a generic speed test (e.g., speedtest.net) and compare the upload speed to what you are experiencing in FileX.
+
+### 2. Concurrent Upload Limits
+If you drag and drop a folder containing thousands of very small files, the browser may struggle to initiate thousands of simultaneous HTTP requests.
+- **Best Practice:** For massive bulk uploads containing thousands of small files, it is significantly faster to ZIP the folder locally, upload the single ZIP file to FileX, and use the "Extract Here" feature within FileX.
+
+### 3. Antivirus Scanning
+Some local antivirus programs intercept and scan every outbound byte during an upload, significantly slowing down the process. Temporarily disabling "Web Shield" or "Real-time scanning" (at your own risk) can diagnose if this is the bottleneck.
+
+---
+
+## WebX Website Loading Slowly
+
+If the website you built with WebX is loading slowly for your visitors:
+
+### 1. Unoptimized Images
+This is the #1 cause of slow websites. While WebX attempts to auto-compress images, uploading a raw 15MB photograph straight from a DSLR camera as a background image will severely impact load times.
+- **Fix:** Resize and compress images *before* uploading them to WebX. Use tools like TinyPNG or Squoosh to reduce image file sizes to under 500KB where possible.
+
+### 2. Excessive Custom Scripts
+If you added custom tracking scripts, chatbots, or heavy third-party widgets via the WebX Custom Code injection settings, they may be blocking the page render.
+- **Fix:** Remove custom scripts one by one to identify the culprit. Where possible, add the `defer` or `async` attribute to script tags to prevent them from blocking the main thread.
+
+### 3. DNS Routing Issues
+If you recently connected your custom domain, DNS propagation might still be directing traffic inefficiently. This usually resolves itself within 24-48 hours as global DNS caches update to point directly to AIBAMS Edge nodes.
+
+---
+
+## FusionX (AI) Generation Delays
+
+If FusionX is taking a long time to respond to prompts:
+
+### 1. Complex Document Analysis
+If you ask FusionX to summarize a 200-page PDF, the system must first extract the text, chunk it, process it through the language model, and synthesize a response. This physically takes time.
+- **Expectation:** Simple queries should respond within 1-3 seconds. Analyzing large documents can take 10-30+ seconds depending on complexity.
+
+### 2. High Global Demand
+During peak business hours (e.g., 9 AM - 11 AM EST), the foundational AI models experience the highest global load. 
+- AIBAMS employs load balancing and priority queuing (with Enterprise customers prioritized), but you may occasionally experience an extra 2-5 seconds of latency during extreme traffic spikes.
+
+### 3. Endless Loop in Autonomous Agents
+If an Autonomous Agent is stuck "Running" for an extended period without completing its goal:
+- The agent may have encountered an edge case it cannot solve and is stuck in a retry loop.
+- **Fix:** Go to **FusionX → Agents**, select the running agent, and click **Force Stop**. Review the Run Log to see where it got stuck, and adjust its instructions/goal to be more explicit.

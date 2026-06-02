@@ -1,0 +1,67 @@
+---
+title: "Account & Billing Issues"
+description: "Troubleshooting common problems related to subscriptions, payments, and account access."
+icon: "credit-card"
+---
+
+## Login & Access Problems
+
+### 1. "Invalid credentials" error during login
+- Ensure you are using the exact email address you registered with (check for typos).
+- Passwords are case-sensitive. Check if Caps Lock is on.
+- If you use Google SSO, ensure you are clicking "Sign in with Google" instead of entering a password manually.
+- **Fix:** Click **Forgot Password** on the login screen to receive a secure reset link via email.
+
+### 2. I haven't received the password reset or verification email
+- **Check Spam/Junk folders:** Look for an email from `noreply@aibams.com`.
+- **Corporate Firewalls:** If you are using a corporate email address, your company's IT firewall might be blocking external automated emails. Contact your IT department to whitelist `@aibams.com`.
+- **Delay:** Email delivery can occasionally be delayed by a few minutes. Wait 5 minutes and request the link again.
+
+### 3. I am locked out due to Two-Factor Authentication (2FA)
+If you lost your phone or authenticator app:
+- **Use a Backup Code:** When you set up 2FA, you were given a set of 10-digit backup codes. Enter one of these instead of the app-generated code.
+- **Ask your Admin:** A Workspace Admin can go to **Admin Settings → Users**, select your profile, and click **Reset 2FA**. You will need to set it up again upon next login.
+- **If you are the only Admin:** Contact [support@aibams.com](mailto:support@aibams.com). You will need to complete a manual identity verification process.
+
+---
+
+## Subscription & Billing Issues
+
+### 1. "Payment Failed" or "Subscription Suspended" notification
+Your credit card or payment method was declined during a subscription renewal attempt.
+- **Expired Card:** Check if the card on file has expired.
+- **Insufficient Funds:** Ensure the account has sufficient funds.
+- **Bank Block:** Some banks block recurring SaaS transactions by default. You may need to authorize the transaction via an OTP (common in India) or contact your bank to approve charges from "AIBAMS".
+- **Fix:** Go to **Settings → Billing → Payment Methods**, update your card details, and click **Retry Payment**.
+
+### 2. I was charged the wrong amount
+- **Proration:** If you added new team members mid-billing-cycle on a per-user plan, you will see a prorated charge for their partial month.
+- **Plan Upgrade:** If you upgraded from Monthly to Annual, the system will charge the annual amount minus the unused portion of your current month.
+- **GST/Tax:** Depending on your jurisdiction, applicable taxes (like 18% GST in India) are added to the base subscription price. Ensure you check the invoice breakdown in **Settings → Billing → Invoice History**.
+
+### 3. How do I change my billing email address?
+Invoices and billing alerts are sent to the Workspace Owner's primary email address by default. 
+To send invoices to a dedicated finance email:
+1. Go to **Settings → Billing → Billing Details**.
+2. Update the "Billing Contact Email" field. 
+*(Note: This does not change the Owner's login email.)*
+
+### 4. I want to cancel my subscription
+You can cancel your subscription at any time without penalty.
+1. Go to **Settings → Billing → Cancel Subscription**.
+2. Your account will remain active until the end of your current paid billing period.
+3. After the period ends, your workspace will be locked. We retain data for 30 days post-cancellation before permanent deletion.
+
+---
+
+## Plan Limits & Quotas
+
+### 1. "Storage Quota Exceeded" error in FileX
+You have hit the storage limit for your current plan (e.g., 100 GB on Early Access).
+- **Fix A (Free up space):** Empty the FileX Trash bin. Delete large, unnecessary files or old file versions.
+- **Fix B (Upgrade):** Go to **Settings → Billing** and upgrade to the Professional plan to increase your storage capacity.
+
+### 2. "AI Request Limit Reached" in FusionX
+FusionX uses a token system for requests. You have exhausted your monthly allowance (e.g., 5,000 requests on Early Access).
+- Your limit resets automatically on the first day of your next billing cycle.
+- **Fix:** Upgrade your plan, or contact support if you need a temporary one-time quota increase.

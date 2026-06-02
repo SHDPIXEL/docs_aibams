@@ -1,0 +1,74 @@
+﻿---
+title: "Common Issues"
+description: "Quick solutions to the most frequently encountered issues across the AIBAMS Fusion Suite."
+icon: "circle-exclamation"
+---
+
+## General Platform Issues
+
+### 1. I can't log into my account.
+- **Check your credentials:** Ensure you are using the correct email and password.
+- **Clear cache/cookies:** Sometimes old session data causes login loops. Clear your browser cache and try again.
+- **Check 2FA:** If 2FA is enabled, ensure your authenticator app's time is synced correctly. If you lost your device, use one of your saved Backup Codes.
+- **Account Suspended:** If your billing failed for 7 consecutive days, your account may be suspended. Check your email for billing notices.
+
+### 2. The dashboard is loading very slowly.
+- **Check Status Page:** Visit [status.aibams.com](https://status.aibams.com) to see if there is an ongoing platform outage or degraded performance.
+- **Network Issue:** Try accessing AIBAMS from a different network (e.g., mobile data) to rule out local firewall or ISP issues.
+- **Browser Extensions:** Ad-blockers or privacy extensions can sometimes block essential AIBAMS scripts. Try logging in via Incognito/Private mode.
+
+---
+
+## MailX Troubleshooting
+
+### 1. I'm not receiving any emails.
+- **Check Domain Verification:** Go to Admin Settings → Domains. Ensure your domain shows as **Verified**.
+- **Check MX Records:** Use a tool like [MxToolbox](https://mxtoolbox.com/) to verify that your domain's MX records point exactly to `mx1.aibams.com` and `mx2.aibams.com`. DNS propagation can take up to 48 hours.
+- **Check Spam/Trash:** Ensure the emails aren't being caught by a strict filter.
+
+### 2. My sent emails are going to recipients' Spam folders.
+This is almost always a DNS authentication issue.
+- Ensure you have correctly added the **SPF**, **DKIM**, and **DMARC** TXT/CNAME records to your DNS provider. 
+- You can find the required records in **Admin Settings → Domains**.
+- New domains often have poor reputation initially. Warming up your email (sending gradually to trusted contacts) helps improve deliverability.
+
+---
+
+## FileX Troubleshooting
+
+### 1. File uploads are failing or hanging.
+- **File Size Limit:** Check if the file exceeds your plan's maximum file size limit (5 GB for Early Access).
+- **Storage Quota:** Go to the Dashboard to check if you have exceeded your total workspace storage limit.
+- **Network Interruptions:** Large uploads require a stable connection. If you are on a VPN, try disabling it temporarily.
+
+### 2. A team member cannot see a shared file.
+- **Check Permissions:** Right-click the file → Share. Verify that the team member's email is explicitly listed or that the file is in a folder they have access to.
+- **Role Restrictions:** Ensure the team member is not suspended and has an active Member or Viewer role.
+
+---
+
+## WebX Troubleshooting
+
+### 1. My website changes aren't showing up live.
+- **Publish Button:** Did you click the **Publish** button in the top right of the WebX editor? Changes are only saved as drafts until published.
+- **Browser Cache:** Perform a hard refresh (`Ctrl + F5` or `Cmd + Shift + R`) on your live website to clear the local browser cache.
+- **CDN Delay:** AIBAMS uses a global CDN. It can occasionally take 1-2 minutes for changes to propagate to all edge servers globally.
+
+### 2. The contact form on my website isn't working.
+- **Check Form Routing:** In WebX, click on the contact form → Settings → Routing. Ensure it is pointing to a valid MailX inbox.
+- **Spam Filter:** Check the Spam folder of the destination MailX inbox.
+
+---
+
+## FusionX (AI) Troubleshooting
+
+### 1. FusionX says "Error generating response" or times out.
+- **Context Too Large:** If you asked FusionX to analyze a massive document (e.g., a 500-page PDF), it may time out. Try asking about specific sections or splitting the document.
+- **Rate Limits:** You may be sending prompts too rapidly. Wait 60 seconds and try again.
+- **System Load:** During peak hours, AI generation can experience slight delays.
+
+### 2. FusionX is giving incorrect or outdated information.
+- **Clear Context:** FusionX might be confused by a previous conversation. Click **New Chat** (broom icon) to clear the current context window.
+- **Check Memory:** Go to **FusionX → Memory** and ensure it hasn't learned an incorrect fact. Delete the incorrect fact if found.
+- **Provide Files:** AI models don't know your private data natively. You must attach or reference the specific FileX document containing the correct information.
+

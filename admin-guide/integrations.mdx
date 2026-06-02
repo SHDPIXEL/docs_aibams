@@ -1,0 +1,101 @@
+---
+title: "Integrations"
+description: "Connect AIBAMS with your existing tools, manage API keys, and configure webhooks."
+icon: "plug"
+---
+
+## Overview
+
+While AIBAMS is designed to replace many discrete SaaS tools, we understand that businesses need to connect with external systems. 
+
+The **Integrations** panel allows Admins to manage API access, webhooks, and third-party app connections.
+
+1. Go to **Admin Settings → Integrations**
+
+---
+
+## API Keys
+
+*(Available on Professional and Enterprise Plans)*
+
+To interact with AIBAMS programmatically, you need an API key. AIBAMS provides a robust REST API for managing users, files, and triggering AI workflows.
+
+### Generating an API Key
+
+1. Go to **Admin Settings → Integrations → API Keys**
+2. Click **Generate New Key**
+3. Provide a descriptive **Name** (e.g., "Zapier Integration", "Internal CRM Sync")
+4. Select the **Scopes** (Permissions) this key should have:
+   - `users.read` / `users.write`
+   - `files.read` / `files.write`
+   - `mail.send` / `mail.read`
+   - `ai.invoke`
+5. Click **Generate**
+6. **Copy the key immediately.** For security reasons, the full key is never shown again.
+
+<Warning>
+  Treat API keys like passwords. Never commit them to source control (like GitHub) or share them in plain text. If a key is compromised, revoke it immediately.
+</Warning>
+
+### Revoking an API Key
+
+If a key is no longer needed or has been compromised:
+1. Locate the key in the list.
+2. Click **Revoke**.
+3. The key is immediately invalidated.
+
+---
+
+## Webhooks
+
+Webhooks allow AIBAMS to notify your external systems in real-time when specific events occur.
+
+### Creating a Webhook
+
+1. Go to **Admin Settings → Integrations → Webhooks**
+2. Click **Create Webhook**
+3. Enter the **Payload URL** (where AIBAMS will send the POST request).
+4. Select the **Events** that should trigger the webhook (e.g., `user.created`, `file.uploaded`, `email.received`).
+5. (Optional) Enter a **Secret Token**. AIBAMS uses this to sign the webhook payload so your server can verify the request is legitimate.
+6. Click **Save**.
+
+### Testing and Debugging
+
+Click on any configured webhook to view its **Delivery History**. Here you can see the payload AIBAMS sent, the HTTP response code from your server, and the response body. You can also manually trigger a test event.
+
+---
+
+## Third-Party Integrations
+
+AIBAMS offers native integrations with popular platforms to streamline your workflows without writing code.
+
+### Available Native Integrations
+
+| Integration | Category | Description |
+|-------------|----------|-------------|
+| **Slack / Teams** | Communication | Receive notifications for FusionX automation failures, new external file shares, or critical alerts. |
+| **Salesforce / HubSpot** | CRM | Sync MailX contacts and log email threads to contact records. |
+| **Stripe** | Finance | Trigger FusionX to generate and email invoices when a Stripe charge succeeds. |
+| **Zapier / Make** | Automation | Connect AIBAMS to 5,000+ other apps. |
+
+### Connecting an App
+
+1. Go to **Admin Settings → Integrations → App Directory**
+2. Browse or search for the app.
+3. Click **Connect**.
+4. Follow the OAuth flow to authorize AIBAMS to access the third-party system.
+5. Configure the specific integration settings (e.g., selecting which Slack channel to post to).
+
+---
+
+## Managing Integration Access
+
+By default, only Admins can set up workspace-wide integrations. 
+
+If a user requests to connect a third-party app to their personal AIBAMS account (e.g., syncing their AIBAMS calendar with an external Google Calendar), the Admin must approve the app.
+
+1. Go to **Admin Settings → Integrations → Approvals**
+2. Review pending requests from users.
+3. Click **Approve** or **Deny**.
+
+You can also proactively block certain apps from being connected to your workspace in the **App Directory**.

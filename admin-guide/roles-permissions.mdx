@@ -1,0 +1,96 @@
+﻿---
+title: "Roles & Permissions"
+description: "Understand the Role-Based Access Control (RBAC) system in AIBAMS and how to assign appropriate access to your team."
+icon: "user-lock"
+---
+
+## Role-Based Access Control (RBAC)
+
+AIBAMS uses a strict Role-Based Access Control system. Permissions are assigned to Roles, and Roles are assigned to Users.
+
+By default, AIBAMS provides four standard roles that cover most organizational needs.
+
+---
+
+## Standard Roles
+
+### 1. Owner
+The Owner has absolute control over the workspace. There can only be **one** Owner per organization.
+- **Capabilities:** Everything an Admin can do, plus managing billing, upgrading/downgrading plans, deleting the workspace, and transferring ownership.
+- **Best for:** The founder or primary account holder.
+
+### 2. Admin
+Admins manage the configuration, security, and users of the workspace.
+- **Capabilities:** Access the Admin Panel, invite/remove users, change roles, manage domains, configure security settings, and view audit logs.
+- **Restrictions:** Cannot manage billing or delete the workspace.
+- **Best for:** IT managers, HR, or operations leads.
+
+### 3. Member
+The standard role for employees. Members use the Fusion Suite to get work done.
+- **Capabilities:** Full access to WebX, MailX, FileX, and FusionX. Can create websites, send emails, upload files, and use the AI assistant.
+- **Restrictions:** Cannot access the Admin Panel, invite users, or change global settings.
+- **Best for:** The majority of your team.
+
+### 4. Viewer
+A read-only role designed for external stakeholders.
+- **Capabilities:** Can log in, view the dashboard, and access files/folders explicitly shared with them.
+- **Restrictions:** Cannot create or edit files, cannot use MailX, cannot use FusionX.
+- **Best for:** Clients, contractors, or auditors.
+
+---
+
+## Detailed Permission Matrix
+
+Here is a breakdown of specific actions and the roles required to perform them.
+
+### Admin & System Actions
+| Action | Owner | Admin | Member | Viewer |
+|--------|-------|-------|--------|--------|
+| Manage Billing | | | | |
+| Transfer Ownership | | | | |
+| Access Admin Panel | | | | |
+| Invite Users | | | | |
+| Suspend/Remove Users | | | | |
+| Change User Roles | | | | |
+| Manage Domains | | | | |
+| View Audit Logs | | | | |
+
+### Fusion Suite Applications
+| Action | Owner | Admin | Member | Viewer |
+|--------|-------|-------|--------|--------|
+| Create WebX Sites | | | | |
+| Send MailX Emails | | | | |
+| Create FileX Folders | | | | |
+| Upload Files | | | | |
+| Use FusionX AI | | | | |
+| View Shared Files | | | | |
+
+### App-Specific Permissions
+
+In addition to global roles, some applications have their own local permissions.
+
+#### FileX Sharing Permissions
+When a Member shares a file in FileX, they grant local permissions:
+- **Can Edit:** Recipient can modify the document.
+- **Can Comment:** Recipient can leave comments but not modify content.
+- **Can View:** Recipient can only read/download.
+
+#### MailX Shared Inboxes
+Admins assign users to Shared Inboxes (e.g., `support@`). Only users explicitly added to the Shared Inbox can view or reply to those emails, regardless of their global role.
+
+---
+
+## Custom Roles
+
+*(Feature currently available only on Enterprise plans)*
+
+Enterprise customers can create **Custom Roles** with granular, permission-level control.
+
+Example Custom Roles you could create:
+- **Billing Admin:** Can manage billing and invoices, but cannot access user management or audit logs.
+- **Webmaster:** Has Admin-level access to WebX, but standard Member access to other apps.
+- **Security Auditor:** Read-only access to the Admin Panel and Audit Logs, but no access to FileX or MailX content.
+
+To configure Custom Roles, go to **Admin Settings → Roles & Permissions → Create Custom Role**.
+
+

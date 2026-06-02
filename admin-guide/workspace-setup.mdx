@@ -1,0 +1,110 @@
+﻿---
+title: "Workspace Setup"
+description: "Configure your organization's core details, branding, domains, and global settings."
+icon: "building"
+---
+
+## Managing Workspace Details
+
+The **Workspace Details** page is where you configure the global identity of your organization within AIBAMS.
+
+1. Go to **Admin Settings → Workspace → Details**
+
+| Setting | Description |
+|---------|-------------|
+| **Organization Name** | Displayed in emails, sharing links, and the dashboard. |
+| **Workspace URL** | `https://[your-slug].portal.aibams.com` |
+| **Timezone** | The default timezone for new users and automated reports. |
+| **Language** | The default language for the workspace interface. |
+
+<Tip>
+  Changing your Organization Name does not automatically update your Workspace URL slug. If you need to change your URL slug, contact support.
+</Tip>
+
+---
+
+## Branding & White-Labeling
+
+*(Professional & Enterprise Plans Only)*
+
+You can customize the appearance of AIBAMS for your team and clients.
+
+1. Go to **Admin Settings → Workspace → Branding**
+
+### Logos
+Upload your company logos to replace the default AIBAMS branding:
+- **Primary Logo:** Used in the top navigation bar (Dark and Light variants).
+- **Favicon:** Used in browser tabs.
+- **Email Logo:** Embedded in system emails (invitations, notifications).
+
+### Colors
+Set your brand's primary accent color. This color will be used for:
+- Primary buttons
+- Active states in navigation
+- Links in system emails
+
+---
+
+## Domain Management
+
+Domains are the foundation of MailX and WebX. You must configure and verify domains before using these applications.
+
+1. Go to **Admin Settings → Workspace → Domains**
+
+### Adding a New Domain
+
+1. Click **Add Domain**
+2. Enter the domain name (e.g., `yourcompany.com`)
+3. AIBAMS will generate a set of DNS records.
+
+### Required DNS Records
+
+To fully verify a domain for all AIBAMS services, you must add these records to your DNS provider (GoDaddy, Cloudflare, Namecheap, etc.):
+
+#### Verification (TXT)
+Proves you own the domain.
+- **Type:** `TXT`
+- **Name:** `@` (or empty)
+- **Value:** `aibams-verify=[unique-string]`
+
+#### MailX Routing (MX)
+Directs incoming email to AIBAMS.
+- **Type:** `MX`
+- **Name:** `@`
+- **Priority:** `10`, **Value:** `mx1.aibams.com`
+- **Priority:** `20`, **Value:** `mx2.aibams.com`
+
+#### MailX Authentication (SPF, DKIM, DMARC)
+Prevents your emails from going to spam.
+- **SPF (TXT):** `v=spf1 include:spf.aibams.com ~all`
+- **DKIM (CNAME):** Name: `mail._domainkey`, Value: `dkim.aibams.com`
+- **DMARC (TXT):** Name: `_dmarc`, Value: `v=DMARC1; p=quarantine;`
+
+#### WebX Hosting (A / CNAME)
+Directs website traffic to AIBAMS.
+- **Type:** `A`, **Name:** `@`, **Value:** `76.76.21.241`
+- **Type:** `CNAME`, **Name:** `www`, **Value:** `sites.aibams.com`
+
+### Verification Status
+
+After adding the records, click **Verify** in the AIBAMS dashboard.
+- **Verified:** DNS is correct and propagated.
+- **Pending:** Awaiting propagation (can take up to 48 hours).
+- **Failed:** Records are missing or incorrect.
+
+---
+
+## Customizing the App Launcher
+
+You can control which Fusion Suite applications are visible to your team.
+
+1. Go to **Admin Settings → Workspace → Apps**
+
+By default, all apps included in your plan are visible. You can toggle apps off if you don't want your team to use them yet.
+
+For example, if you're migrating from another storage provider, you might toggle **FileX** off until the migration is complete, preventing users from uploading files prematurely.
+
+<Note>
+  Toggling an app off does not delete its data; it simply removes it from the navigation menu for non-admin users.
+</Note>
+

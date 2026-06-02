@@ -1,0 +1,51 @@
+---
+title: "Security & Privacy FAQ"
+description: "Information regarding AIBAMS security protocols, data privacy, and compliance."
+icon: "shield-check"
+---
+
+## Is my data encrypted?
+
+Yes. Security is built into every layer of AIBAMS (FusionOS). 
+- **Data at Rest:** All files stored in FileX, emails in MailX, and database records are encrypted using **AES-256-GCM**.
+- **Data in Transit:** All communications between your browser and our servers, as well as internal microservice communications, are encrypted using **TLS 1.3**.
+
+## Who has access to my workspace data?
+
+Only authorized users within your workspace organization have access to your data, governed by the Roles & Permissions set by your Admins. 
+
+AIBAMS employees **cannot** access your private files, emails, or AI conversation histories. In the rare event that technical support requires access to debug a specific issue, we employ a strict internal access request protocol requiring explicit, time-bound approval from your workspace Owner.
+
+## Do you sell my data or use it for advertising?
+
+**Absolutely not.** We are a SaaS infrastructure company, not an advertising company. Our business model relies on subscription revenue. We do not sell, rent, or monetize your personal or business data in any way.
+
+## Is my data used to train AIBAMS' AI models?
+
+**No.** AIBAMS explicitly does not use customer data (files, emails, chat history, or FusionX memories) to train our foundational AI models. 
+
+Your data is processed by the AI models strictly to fulfill your specific requests (e.g., summarizing a document). The memory layer that FusionX builds is completely isolated to your specific workspace namespace and is never shared across organizations.
+
+## Is AIBAMS GDPR compliant?
+
+Yes, AIBAMS is designed to be fully compliant with the General Data Protection Regulation (GDPR) and similar data privacy laws. We provide:
+- **Right to Erasure:** Tools to permanently delete user accounts and associated data.
+- **Data Portability:** Tools to export all workspace data in standard formats.
+- **Consent Management:** Transparent opt-in processes for tracking and analytics (only used for platform improvement).
+- **Data Processing Agreements (DPA):** Available for Enterprise customers upon request.
+
+## Does AIBAMS support Two-Factor Authentication (2FA)?
+
+Yes. We strongly encourage all users to enable Two-Factor Authentication using an authenticator app (like Google Authenticator, Authy, or Microsoft Authenticator). 
+
+Workspace Admins have the ability to **enforce mandatory 2FA** for all users within their organization through the Security Settings panel.
+
+## What happens if I forget my password and lose my 2FA device?
+
+If you lose access to your authenticator app, you will need to use one of the **Backup Codes** that were provided to you when you initially set up 2FA. 
+
+If you have lost both your device and your backup codes, you must contact your Workspace Admin. Admins have the ability to reset a user's 2FA configuration from the User Management panel. If you are the sole Workspace Owner and lose access, you will need to contact AIBAMS Support and undergo a rigorous identity verification process to regain access.
+
+## How do you handle vulnerability reporting?
+
+We take security vulnerabilities seriously. We operate a vulnerability disclosure program and encourage security researchers to report potential issues to `security@aibams.com`. We commit to investigating all legitimate reports promptly.
