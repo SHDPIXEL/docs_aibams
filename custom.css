@@ -222,14 +222,14 @@ div[class*="max-w-[640px]"] {
 @media (min-width: 640px) {
   div[role="dialog"] div.fixed.inset-0.overflow-y-auto {
     padding-top: 50px !important;
-    padding-left: 40px !important;
-    padding-right: 40px !important;
+    padding-left: 100px !important; /* Increased from 40px */
+    padding-right: 100px !important; /* Increased from 40px */
     padding-bottom: 50px !important;
   }
   div[role="dialog"] div.mx-auto,
   div.shadow-search,
   div[class*="max-w-[640px]"] {
-    max-width: 480px !important;
+    max-width: 380px !important; /* Reduced from 420px */
   }
 }
 
@@ -237,14 +237,14 @@ div[class*="max-w-[640px]"] {
 @media (min-width: 1024px) and (max-width: 2559px) {
   div[role="dialog"] div.fixed.inset-0.overflow-y-auto {
     padding-top: 100px !important;
-    padding-left: 100px !important;
-    padding-right: 100px !important;
+    padding-left: 300px !important; /* Increased from 100px */
+    padding-right: 300px !important; /* Increased from 100px */
     padding-bottom: 100px !important;
   }
   div[role="dialog"] div.mx-auto,
   div.shadow-search,
   div[class*="max-w-[640px]"] {
-    max-width: 400px !important; 
+    max-width: 320px !important; /* Reduced from 360px */
     width: 100% !important;
   }
 }
@@ -253,14 +253,14 @@ div[class*="max-w-[640px]"] {
 @media (min-width: 2560px) {
   div[role="dialog"] div.fixed.inset-0.overflow-y-auto {
     padding-top: 150px !important;
-    padding-left: 25% !important; /* Larger horizontal padding for ultra-wide screens to center search modal */
-    padding-right: 25% !important;
+    padding-left: 38% !important; /* Increased from 25% to center-align on ultra-wide screens */
+    padding-right: 38% !important; /* Increased from 25% */
     padding-bottom: 150px !important;
   }
   div[role="dialog"] div.mx-auto,
   div.shadow-search,
   div[class*="max-w-[640px]"] {
-    max-width: 560px !important; /* Slightly wider modal card to look balanced on a huge screen */
+    max-width: 400px !important; /* Reduced from 480px */
     width: 100% !important;
   }
 }
