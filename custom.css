@@ -56,12 +56,17 @@ input {
   border-radius: 0 !important;
 }
 
-/* WIDEN MAIN CONTENT AREA (Reduce left/right space) */
-.prose,
-.max-w-3xl,
-.max-w-4xl,
-.max-w-5xl,
-.max-w-6xl {
+/* WIDEN MAIN CONTENT AREA (Reduce left/right space) - Scoped to main page content only */
+main .prose,
+main .max-w-3xl,
+main .max-w-4xl,
+main .max-w-5xl,
+main .max-w-6xl,
+article .prose,
+article .max-w-3xl,
+article .max-w-4xl,
+article .max-w-5xl,
+article .max-w-6xl {
   max-width: none !important;
 }
 
@@ -197,9 +202,67 @@ html:not(.dark) aside a[class*="text-primary"] svg {
   filter: brightness(0) !important;
 }
 
-/* SEARCH MODAL POSITION FIX */
-div[role="dialog"]:not(.lg\:hidden)>div {
-  padding-top: 100px !important;
+/* SEARCH MODAL POSITION, PADDING & WIDTH (RESPONSIVE) */
+
+/* A. Mobile Screens (default, under 640px) */
+div[role="dialog"] div.fixed.inset-0.overflow-y-auto {
+  padding-top: 24px !important;
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+  padding-bottom: 24px !important;
+}
+div[role="dialog"] div.mx-auto,
+div.shadow-search,
+div[class*="max-w-[640px]"] {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+/* B. Tablet Screens (640px to 1023px) */
+@media (min-width: 640px) {
+  div[role="dialog"] div.fixed.inset-0.overflow-y-auto {
+    padding-top: 50px !important;
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+    padding-bottom: 50px !important;
+  }
+  div[role="dialog"] div.mx-auto,
+  div.shadow-search,
+  div[class*="max-w-[640px]"] {
+    max-width: 480px !important;
+  }
+}
+
+/* C. Desktop Screens (1024px to 2559px) */
+@media (min-width: 1024px) and (max-width: 2559px) {
+  div[role="dialog"] div.fixed.inset-0.overflow-y-auto {
+    padding-top: 100px !important;
+    padding-left: 100px !important;
+    padding-right: 100px !important;
+    padding-bottom: 100px !important;
+  }
+  div[role="dialog"] div.mx-auto,
+  div.shadow-search,
+  div[class*="max-w-[640px]"] {
+    max-width: 400px !important; 
+    width: 100% !important;
+  }
+}
+
+/* D. Ultra-wide & 4K Screens (2560px and above) */
+@media (min-width: 2560px) {
+  div[role="dialog"] div.fixed.inset-0.overflow-y-auto {
+    padding-top: 150px !important;
+    padding-left: 25% !important; /* Larger horizontal padding for ultra-wide screens to center search modal */
+    padding-right: 25% !important;
+    padding-bottom: 150px !important;
+  }
+  div[role="dialog"] div.mx-auto,
+  div.shadow-search,
+  div[class*="max-w-[640px]"] {
+    max-width: 560px !important; /* Slightly wider modal card to look balanced on a huge screen */
+    width: 100% !important;
+  }
 }
 
 /* ADD BORDER TO HEADER SEARCH AND ASK ASSISTANT BUTTONS IN LIGHT MODE */
@@ -810,10 +873,11 @@ div[role="dialog"] div[id="mobile-nav"] {
   height: 100dvh !important;
   width: 100% !important;
   max-width: none !important;
-  padding-top: 4.5rem !important;
+  padding-top: 1rem !important;
   /* Pushes content below the absolute header row */
   padding-left: 1rem !important;
   padding-right: 1rem !important;
+  padding-bottom: 1rem !important;
 }
 
 /* Align the close (X) button vertically with the logo and theme toggle inside the panel */
@@ -1185,11 +1249,9 @@ video::-webkit-media-controls-panel {
   align-items: center;
   gap: 12px;
 
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.8),
-    transparent
-  );
+  background: linear-gradient(to top,
+      rgba(0, 0, 0, 0.8),
+      transparent);
   border-radius: 0 !important;
   z-index: 10;
 }
@@ -1370,6 +1432,7 @@ html.dark .feedback-thanks {
     align-items: flex-start;
     gap: 16px;
   }
+
   .feedback-buttons {
     width: 100%;
     justify-content: flex-start;
@@ -1384,6 +1447,8 @@ div.sticky.bottom-0.pointer-events-none,
 
 /* Custom icon size helper */
 .feedback-icon {
-  width: 18px !important;  /* CHANGE THIS to adjust icon width (e.g., 16px, 20px, 24px) */
-  height: 18px !important; /* CHANGE THIS to adjust icon height */
+  width: 18px !important;
+  /* CHANGE THIS to adjust icon width (e.g., 16px, 20px, 24px) */
+  height: 18px !important;
+  /* CHANGE THIS to adjust icon height */
 }
