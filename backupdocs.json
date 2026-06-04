@@ -1,6 +1,9 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
+  "customCSS": [
+    "custom.css"
+  ],
   "name": "AIBAMS Documentation",
   "colors": {
     "primary": "#ffffff",
@@ -119,7 +122,7 @@
         {
           "anchor": "Community",
           "href": "https://www.aibams.com/community",
-          "icon": "users"
+          "icon": "discord"
         },
         {
           "anchor": "Contact Support",
@@ -159,7 +162,8 @@
     }
   },
   "search": {
-    "prompt": "Search AIBAMS docs..."
+    "prompt": "Search AIBAMS docs...",
+    "ai" : false
   },
   "footer": {
     "socials": {

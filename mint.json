@@ -4,6 +4,7 @@
   "customCSS": [
     "custom.css"
   ],
+  "js": "custom.js",
   "logo": {
     "dark": "/logo/icon-w.png",
     "light": "/logo/icon-b.png",
@@ -159,7 +160,8 @@
     "raiseIssue": true
   },
   "search": {
-    "prompt": "Search AIBAMS docs..."
+    "prompt": "Search AIBAMS docs...",
+    "ai" : false
   },
   "modeToggle": {
     "default": "dark",
