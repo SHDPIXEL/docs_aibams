@@ -331,6 +331,7 @@ if (document.readyState === 'loading') {
     setupAIAssistantRemover();
     setupCustomVideoPlayers();
     setupFeedbackSection();
+    setupPageTitleFormatter();
   });
 } else {
   setupSearchInterceptor();
@@ -341,6 +342,7 @@ if (document.readyState === 'loading') {
   setupAIAssistantRemover();
   setupCustomVideoPlayers();
   setupFeedbackSection();
+  setupPageTitleFormatter();
 }
 
 // 6. Custom Video Player Initialization
@@ -604,4 +606,52 @@ function setupFeedbackSection() {
   // Initial Run
   injectFeedback();
 }
+
+// 8. Dynamic Page Title Formatter
+function setupPageTitleFormatter() {
+  console.log("Page Title Formatter setup initialized");
+
+  function formatTitle() {
+    let currentTitle = document.title;
+    if (!currentTitle) return;
+
+    // Check if we already formatted it to avoid recursion
+    if (currentTitle.endsWith(' | AiBAMS Docs')) {
+      return;
+    }
+
+    // Split title by Mintlify's default separators " - " or " | "
+    let parts = currentTitle.split(' - ');
+    if (parts.length === 1) {
+      parts = currentTitle.split(' | ');
+    }
+
+    if (parts.length > 0) {
+      let pageName = parts[0].trim();
+      
+      if (pageName === 'Documentation' || pageName === 'Welcome to AIBAMS' || pageName === 'AIBAMS Documentation' || pageName === 'Introduction') {
+        pageName = 'Documentation';
+      }
+      
+      const newTitle = `${pageName} | AiBAMS Docs`;
+      if (document.title !== newTitle) {
+        document.title = newTitle;
+      }
+    }
+  }
+
+  // Run immediately
+  formatTitle();
+
+  // Watch for changes in <head> to handle <title> tag updates/replacements
+  const headEl = document.querySelector('head');
+  if (headEl) {
+    const titleObserver = new MutationObserver(formatTitle);
+    titleObserver.observe(headEl, { childList: true, subtree: true, characterData: true });
+  }
+
+  // Fallback interval to ensure title remains formatted
+  setInterval(formatTitle, 500);
+}
+
 
