@@ -1477,3 +1477,15 @@ div.sticky.bottom-0.pointer-events-none,
   height: 18px !important;
   /* CHANGE THIS to adjust icon height */
 }
+
+/* Fix search result highlights visibility in Light Mode */
+html:not(.dark) div[role="dialog"] mark,
+html:not(.dark) div[role="dialog"] mark *,
+html:not(.dark) div[role="dialog"] span.font-medium,
+html:not(.dark) div[role="dialog"] .text-primary,
+html:not(.dark) div.shadow-search mark,
+html:not(.dark) div.shadow-search mark *,
+html:not(.dark) div.shadow-search span.font-medium,
+html:not(.dark) div.shadow-search .text-primary {
+  color: #18181b !important; /* Dark gray for visibility on white background */
+}
