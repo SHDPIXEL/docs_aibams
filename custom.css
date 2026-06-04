@@ -265,6 +265,12 @@ div[class*="max-w-[640px]"] {
   }
 }
 
+/* Remove bottom border from search input container wrapper */
+div.shadow-search div.h-14,
+div[class*="shadow-search"] div.h-14 {
+  border-bottom: none !important;
+}
+
 /* ADD BORDER TO HEADER SEARCH AND ASK ASSISTANT BUTTONS IN LIGHT MODE */
 html:not(.dark) header button:has(svg):has(span),
 html:not(.dark) header button:has(kbd) {
@@ -474,34 +480,53 @@ html:not(.dark) main a.group[class*="ring"]:has(p) svg {
     /* Space between tabs */
   }
 
-  #navbar .nav-tabs-item {
+  #navbar .nav-tabs-item,
+  #navbar a.border-b-2,
+  #navbar a.border-primary,
+  #navbar a.border-primary-light,
+  #navbar a[class*="border-b"] {
     height: 100% !important;
     display: flex !important;
     align-items: center !important;
     border: none !important;
+    border-bottom: none !important;
+    border-bottom-width: 0px !important;
     padding: 0 0.5rem !important;
     text-transform: uppercase !important;
     letter-spacing: 0.05em !important;
   }
 
+  /* Hide the absolute active tab indicator line/bar */
+  #navbar div.absolute.bottom-0,
+  #navbar [class*="absolute"][class*="bottom-0"][class*="bg-primary"],
+  #navbar [class*="indicator"],
+  #navbar [class*="tab-indicator"] {
+    display: none !important;
+    height: 0px !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+
   /* 3. Scope to the main row of the navbar on desktop to align sections */
-  #navbar .h-16 .h-full.relative.flex-1.flex.items-center {
+  #navbar .h-full.relative.flex-1.flex.items-center {
     display: flex !important;
     justify-content: flex-end !important;
     align-items: center !important;
     gap: 0.375rem !important;
     /* space between sections on the right */
     border-bottom: none !important;
+    border-bottom-width: 0px !important;
+    border-color: transparent !important;
   }
 
   /* Left logo container: push to far left */
-  #navbar .h-16 .h-full.relative.flex-1.flex.items-center>div:first-child {
+  #navbar .h-full.relative.flex-1.flex.items-center>div:first-child {
     flex: none !important;
     margin-right: auto !important;
   }
 
   /* Center search container: place in flex flow next to right group */
-  #navbar .h-16 .h-full.relative.flex-1.flex.items-center>div:nth-child(2) {
+  #navbar .h-full.relative.flex-1.flex.items-center>div:nth-child(2) {
     flex: 0 0 2.25rem !important;
     width: 2.25rem !important;
     max-width: 2.25rem !important;
@@ -517,7 +542,7 @@ html:not(.dark) main a.group[class*="ring"]:has(p) svg {
   }
 
   /* Right container: place next to search container */
-  #navbar .h-16 .h-full.relative.flex-1.flex.items-center>div:nth-child(3) {
+  #navbar .h-full.relative.flex-1.flex.items-center>div:nth-child(3) {
     flex: none !important;
     order: 3 !important;
     display: flex !important;
