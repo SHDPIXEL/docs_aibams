@@ -330,7 +330,6 @@ if (document.readyState === 'loading') {
     setupSmoothScrolling();
     setupAIAssistantRemover();
     setupCustomVideoPlayers();
-    setupFeedbackSection();
     setupPageTitleFormatter();
   });
 } else {
@@ -341,7 +340,6 @@ if (document.readyState === 'loading') {
   setupSmoothScrolling();
   setupAIAssistantRemover();
   setupCustomVideoPlayers();
-  setupFeedbackSection();
   setupPageTitleFormatter();
 }
 
@@ -492,120 +490,7 @@ function setupCustomVideoPlayers() {
   applyControlsToVideos();
 }
 
-// 7. Dynamic Feedback Section Setup
-function setupFeedbackSection() {
-  console.log("Feedback Section setup initialized");
 
-  let feedbackObserver;
-
-  function injectFeedback() {
-    if (feedbackObserver) {
-      feedbackObserver.disconnect();
-    }
-
-    try {
-      const footer = document.querySelector('footer');
-      if (!footer) return;
-
-      // Check if feedback section is already present
-      if (document.querySelector('.custom-feedback-section')) return;
-
-      const pagePath = window.location.pathname;
-      const voteKey = `feedback_vote_${pagePath}`;
-      const hasVoted = localStorage.getItem(voteKey) || sessionStorage.getItem(voteKey);
-
-      const feedbackSection = document.createElement('div');
-      feedbackSection.className = 'custom-feedback-section';
-
-      const feedbackContent = document.createElement('div');
-      feedbackContent.className = 'feedback-content';
-
-      const question = document.createElement('span');
-      question.className = 'feedback-question';
-      question.textContent = 'Was this page helpful?';
-      feedbackContent.appendChild(question);
-
-      const buttonsContainer = document.createElement('div');
-      buttonsContainer.className = 'feedback-buttons';
-
-      const thumbsUp = document.createElement('button');
-      thumbsUp.className = 'feedback-btn btn-yes';
-      thumbsUp.setAttribute('aria-label', 'Helpful');
-      thumbsUp.innerHTML = '<svg class="feedback-icon" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>';
-
-      const thumbsDown = document.createElement('button');
-      thumbsDown.className = 'feedback-btn btn-no';
-      thumbsDown.setAttribute('aria-label', 'Not Helpful');
-      thumbsDown.innerHTML = '<svg class="feedback-icon" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h3a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-3"></path></svg>';
-
-      buttonsContainer.appendChild(thumbsUp);
-      buttonsContainer.appendChild(thumbsDown);
-      feedbackContent.appendChild(buttonsContainer);
-
-      const thanksText = document.createElement('span');
-      thanksText.className = 'feedback-thanks hidden';
-      thanksText.textContent = 'Thanks for your feedback!';
-      feedbackContent.appendChild(thanksText);
-
-      feedbackSection.appendChild(feedbackContent);
-
-      // Insert before the footer element inside its parent
-      footer.parentNode.insertBefore(feedbackSection, footer);
-
-      // Helper function to handle vote submission
-      function handleVote(voteType) {
-        localStorage.setItem(voteKey, voteType);
-        sessionStorage.setItem(voteKey, voteType);
-
-        // Hide question and buttons
-        question.style.display = 'none';
-        buttonsContainer.style.display = 'none';
-
-        // Show thanks message
-        thanksText.classList.remove('hidden');
-
-        // Revert back to original state after 2 seconds
-        setTimeout(() => {
-          thanksText.classList.add('hidden');
-          question.style.display = '';
-          buttonsContainer.style.display = '';
-        }, 2000);
-      }
-
-      // Bind vote events
-      thumbsUp.addEventListener('click', () => handleVote('yes'));
-      thumbsDown.addEventListener('click', () => handleVote('no'));
-    } catch (err) {
-      console.warn('Feedback injection failed:', err);
-    }
-
-    if (feedbackObserver) {
-      feedbackObserver.observe(document.body, { childList: true, subtree: true });
-    }
-  }
-
-  // Watch DOM additions/navigation to apply controls to new pages
-  feedbackObserver = new MutationObserver((mutations) => {
-    let shouldCheck = false;
-    mutations.forEach(mutation => {
-      mutation.addedNodes.forEach(node => {
-        if (node.nodeType === Node.ELEMENT_NODE) {
-          if (node.tagName === 'ARTICLE' || node.querySelector('article') || node.querySelector('footer')) {
-            shouldCheck = true;
-          }
-        }
-      });
-    });
-    if (shouldCheck) {
-      injectFeedback();
-    }
-  });
-
-  feedbackObserver.observe(document.body, { childList: true, subtree: true });
-
-  // Initial Run
-  injectFeedback();
-}
 
 // 8. Dynamic Page Title Formatter
 function setupPageTitleFormatter() {
